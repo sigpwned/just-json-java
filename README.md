@@ -1,4 +1,4 @@
-# Just JSON for Java
+# Just JSON for Java [![tests](https://github.com/sigpwned/just-json-java/actions/workflows/tests.yml/badge.svg)](https://github.com/sigpwned/just-json-java/actions/workflows/tests.yml)
 
 Just JSON is a small, simple library for Java that provides JSON parsing and emitting support and nothing else.
 
