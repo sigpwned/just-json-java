@@ -3,7 +3,7 @@
 
     <groupId>com.sigpwned</groupId>
     <artifactId>just-json</artifactId>
-    <version>0.0.0</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>just-json</name>
     <inceptionYear>2024</inceptionYear>
     <description>Minimal JSON Parser and Emitter for Java 8+</description>
