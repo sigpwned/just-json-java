@@ -16,8 +16,16 @@ Just JSON should...
 
 Just JSON should not...
 
-* **Validate JSON**. The library rejects most invalid JSON, but it is not intended to be a validating parser.
+* **Validate JSON**. The library rejects invalid JSON in most cases, but it is not designed as a strict JSON validating parser.
 * **Support more JSON features**. The library intentionally does not provide bean mapping, streaming parsers, and so on.
+
+## Installation
+
+Just JSON is in Maven Central, so you can simply add a dependency.
+
+    // TODO Add Dependency GAV once released
+
+Just JSON is a single Java file, so you can also just copy/paste it into your project, in a pinch.
 
 ## Quickstart
 
@@ -32,13 +40,27 @@ Just JSON models JSON data using the following types:
 
 To parse a JSON string into the above model:
 
-    Object value = JustJson.parseDocument("{\"hello\":\"world\"}");
+    Object value;
+    try {
+        value = JustJson.parseDocument("{\"hello\":\"world\"}");
+        // The JSON is valid!
+    } catch(IllegalArgumentException e) {
+        // The JSON is not valid, and the problem is described in the exception's message.
+    }
     
 To emit a JSON string from data of the above model:
 
     Map<String, Object> value = new HashMap<>();
     value.put("hello", "world");
-    JustJson.emitDocument(value);
+    
+    String json;
+    try {
+        json = JustJson.emitDocument(value);
+    } catch(IllegalArgumentException e) {
+        // The JSON value was not valid. This means some value was not a Map, List, Number, String, Boolean,
+        // or JustJson.NULL. This example will not throw an exception, but this is how you would handle an
+        // exception if one were thrown.
+    }
 
 ## Advanced Usage
 
@@ -150,17 +172,9 @@ And so, Just JSON was born.
 
 Feel free to ask, but probably not. Just JSON is for simple use cases where all you need is to parse and/or emit JSON. If you need more than that, then you should consider another more fully-featured implementation, like Jackson or GSON.
 
-### How did you write Just JSON?
-
-Believe it or not, [ChatGPT](https://chatgpt.com/) wrote most of it.
-
-Writing a JSON parser isn't hard -- like most software engineers, I've taken a swing at it [at least once](https://github.com/sigpwned/jsonification) -- but at the point where I was considering writing Yet Another JSON Library, I knew that I needed short, simple code that I didn't have to think too much about. So I asked ChatGPT to write me a JSON parser, because why not? You can find the conversation [here](https://chatgpt.com/share/67294554-6200-8000-9bbf-ee451d304a79), if you're curious to read it.
-
-To my mild surprise, with a little prompt engineering, [the ChatGPT 4o model](https://platform.openai.com/docs/models#gpt-4o) happily generated both the parser and the basic JsonTestSuite harness. It took an afternoon or so of massaging to get the tests working, write the docs, set up benchmarks, and so on for release. But ChatGPT made a great start.
-
 ### Are you sure that Just JSON works?
 
-Pretty sure. Just JSON passes 100% of the "y" cases and 94% of the "n" cases [JsonTestSuite](https://github.com/nst/JSONTestSuite). (In other words, Just JSON successfully passes all the valid JSON cases, and rejects 94% of the invalid JSON test cases.)
+Pretty sure. Just JSON passes 100% of the "y" cases (i.e., test cases for accepting valid JSON) and 94% of the "n" cases (i.e., test cases for rejecting invalid JSON) in [JsonTestSuite](https://github.com/nst/JSONTestSuite).
 
 The specific tests it currently fails are:
 
@@ -176,15 +190,25 @@ The specific tests it currently fails are:
 * n_number_real_without_fractional_part.json
 * n_number_0.e1.json
 
-In other words, Just JSON does not reject JSON with numbers that can be parsed, but do not match the JSON spec, e.g., numbers `1.`.
+In other words, Just JSON does not reject JSON with numbers that can be parsed, but do not match the JSON spec, e.g., numbers `1.`. These tests may be fixed in the future, but for the moment they should not interfere with users who just need to work with JSON, not validate it.
 
 ### How fast is Just JSON?
 
-Faster than [org.json](https://github.com/stleary/JSON-java), but not as fast as [jackson](https://github.com/FasterXML/jackson). According to Just JSON's benchmarks:
+Faster than [org.json](https://github.com/stleary/JSON-java), but not as fast as [Jackson](https://github.com/FasterXML/jackson). Here are the results of Just JSON's benchmarks, as run on my humble little laptop:
 
     Benchmark                     Mode  Cnt   Score   Error  Units
     OrgJsonBenchmark.benchmark   thrpt    9  11.679 ± 0.665  ops/s
     JustJsonBenchmark.benchmark  thrpt    9  18.663 ± 0.835  ops/s
     JacksonBenchmark.benchmark   thrpt    9  27.320 ± 0.719  ops/s
     
-Just JSON is about 60% faster than org.json, and Jackson is about 46% faster than Just JSON.
+Each iteration of the benchmark represents parsing 1MB of JSON spread across multiple fragments. Therefore, the benchmark results can loosely be interpreted each library's performance at parsing JSON in units of MB/s. (So, org.json parses JSON at a rate of 11.679 MB/s.)
+
+Per the benchmarks, Just JSON is about 60% faster than org.json, and Jackson is about 46% faster than Just JSON.
+
+## A Note on Development
+
+Believe it or not, [ChatGPT](https://chatgpt.com/) wrote most of this library.
+
+Writing a JSON parser isn't hard -- like most software engineers, I've taken a swing at it [at least once](https://github.com/sigpwned/jsonification) -- but at the point where I was considering writing Yet Another JSON Library, I knew that I needed short, simple code that I didn't have to think too much about. So I asked ChatGPT to write me a JSON parser, because why not? You can find the conversation [here](https://chatgpt.com/share/67294554-6200-8000-9bbf-ee451d304a79), if you're curious to read it.
+
+To my mild surprise, with a little prompt engineering, [the ChatGPT 4o model](https://platform.openai.com/docs/models#gpt-4o) happily generated both the parser and the basic JsonTestSuite harness. It took an afternoon or so of massaging to get the tests working, write the docs, set up benchmarks, and so on for release. But ChatGPT made a great start!
