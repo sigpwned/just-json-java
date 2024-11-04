@@ -103,7 +103,8 @@ public class JustJson {
    * @param json the JSON string to parse
    * @return the parsed value
    * 
-   * @throws IllegalArgumentException if the input is not a valid JSON value
+   * @throws IllegalArgumentException if the input does not start with a valid JSON value,
+   *         optionally preceded by whitespace
    * @throws NullPointerException if the input is null
    * 
    * @see #parseDocument(String)
@@ -116,9 +117,10 @@ public class JustJson {
 
   /**
    * <p>
-   * Creates a new {@link #defaultParser() default parser} and uses it to parse all of the values
-   * from the given string, returning the ordered sequence as an {@link Iterator}. The values can be
-   * any valid JSON value, namely: an object, an array, a string, a number, a boolean, or null.
+   * Creates a new {@link #defaultParser() default parser} and uses it to parse all of the fragments
+   * from the given string, returning the ordered sequence as an {@link Iterator}. The string must
+   * contain zero or more JSON values separated by whitespace. The values can be any valid JSON
+   * value, namely: an object, an array, a string, a number, a boolean, or null.
    * </p>
    * 
    * <p>
@@ -135,7 +137,12 @@ public class JustJson {
    * 
    * @param json The string to parse
    * @return The iterator of parsed JSON values
+   *
+   * @throws IllegalArgumentException if the input is not a sequence of zero or more valid JSON
+   *         values separated by whitespace
+   * @throws NullPointerException if the input is null
    * 
+   * @see #defaultParser()
    * @see #parseFragments(Parser, String)
    */
   public static Iterator<Object> parseFragments(String json) {
@@ -144,9 +151,14 @@ public class JustJson {
 
   /**
    * <p>
-   * Returns a stream of JSON fragments from the given string. The string must contain all
-   * whitespace, or one or more JSON values optionally surrounded by whitespace. The values can be
-   * any valid JSON value, namely: an object, an array, a string, a number, a boolean, or null.
+   * Creates a new {@link #defaultParser() default parser} and uses it to parse all of the fragments
+   * from the given string, returning the ordered sequence as a {@link Stream}. The string must
+   * contain zero or more JSON values separated by whitespace. The values can be any valid JSON
+   * value, namely: an object, an array, a string, a number, a boolean, or null.
+   * </p>
+   * 
+   * <p>
+   * The individual values in the returned stream are mutable.
    * </p>
    * 
    * <p>
@@ -154,20 +166,24 @@ public class JustJson {
    * </p>
    * 
    * @param parser the parser to use
-   * @param json the string to parse
+   * @param json The string to parse. It must consist of either (a) all whitespace, in which case
+   *        the return stream will be empty; or (b) one or more valid JSON values, each separated by
+   *        one or more whitespace characters, with optional leading and trailing whitespace at the
+   *        beginning and end of the string.
    * @return a stream of JSON fragments
+   * 
+   * @see #defaultParser()
+   * @see #streamFragments(Parser, String)
    */
-  public static Stream<Object> streamFragments(Parser parser, String json) {
-    return StreamSupport.stream(
-        Spliterators.spliteratorUnknownSize(parseFragments(parser, json), Spliterator.ORDERED),
-        false);
+  public static Stream<Object> streamFragments(String json) {
+    return streamFragments(defaultParser(), json);
   }
 
   /**
    * <p>
-   * Creates a {@link #defaultParser() default parser} and uses it to parse the given JSON document.
-   * The value can be any valid JSON value, namely: an object, an array, a string, a number, a
-   * boolean, or null.
+   * Creates a new {@link #defaultParser() default parser} and uses it to parse the given JSON
+   * document. The document must contain exactly one JSON value of any type, namely: an object, an
+   * array, a string, a number, a boolean, or null.
    * </p>
    * 
    * <p>
@@ -176,20 +192,6 @@ public class JustJson {
    * an exception to be thrown. Users may use {@link #parseFragment(String)} to parse multiple
    * values from a single string.
    * </p>
-   * 
-   * <p>
-   * The method will return one of the following types:
-   * </p>
-   * 
-   * <ul>
-   * <li>{@link Map} - for JSON objects. Keys must be {@link String strings}, values must be one of
-   * these values.</li>
-   * <li>{@link List} - for JSON arrays. Values must be one of these values.</li>
-   * <li>{@link String} - for JSON strings</li>
-   * <li>{@link Number} - for JSON numbers</li>
-   * <li>{@link Boolean} - for JSON booleans</li>
-   * <li>{@link Null} - for JSON null, always {@code ==} to {@link #NULL}</li>
-   * </ul>
    * 
    * <p>
    * The returned value is mutable.
@@ -212,135 +214,32 @@ public class JustJson {
 
   /**
    * <p>
-   * Creates a new {@link #defaultImmutableParser() default immutable parser} and uses it to parse
-   * the first value from the given string.The string must start with a JSON value, optionally
-   * preceded by whitespace. The value can be any valid JSON value, namely: an object, an array, a
+   * Uses the given parser to parse all of the fragments from the given string, returning the
+   * ordered sequence as an {@link Iterator}. The string must contain zero or more JSON values
+   * separated by whitespace. The values can be any valid JSON value, namely: an object, an array, a
    * string, a number, a boolean, or null.
    * </p>
    * 
    * <p>
-   * Parsing stops as soon as the first value is parsed. Any trailing characters after the first
-   * value will be ignored. The user may call {@link #getIndex()} to determine the position of the
-   * first unparsed character to find the remaining input.
+   * The returned iterator does not support the {@link Iterator#remove()} operation.
    * </p>
    * 
    * <p>
-   * The method will return one of the following types:
-   * </p>
-   * 
-   * <ul>
-   * <li>{@link Map} - for JSON objects. Keys must be {@link String strings}, values must be one of
-   * these values.</li>
-   * <li>{@link List} - for JSON arrays. Values must be one of these values.</li>
-   * <li>{@link String} - for JSON strings</li>
-   * <li>{@link Number} - for JSON numbers</li>
-   * <li>{@link Boolean} - for JSON booleans</li>
-   * <li>{@link Null} - for JSON null, always {@code ==} to {@link #NULL}</li>
-   * </ul>
-   * 
-   * <p>
-   * The returned value is mutable.
-   * </p>
-   * 
-   * @param json the JSON string to parse
-   * @return the parsed value
-   * 
-   * @throws IllegalArgumentException if the input is not a valid JSON value
-   * @throws NullPointerException if the input is null
-   * 
-   * @see #parseImmutableDocument(String)
-   * @see #defaultImmutableParser()
-   * @see Parser#parseFragment(String)
-   */
-  public static Object parseImmutableFragment(String json) {
-    return defaultImmutableParser().parseFragment(json);
-  }
-
-  /**
-   * <p>
-   * Creates a {@link #defaultImmutableParser() default immutable parser} and uses it to parse the
-   * given JSON document. The value can be any valid JSON value, namely: an object, an array, a
-   * string, a number, a boolean, or null.
-   * </p>
-   * 
-   * <p>
-   * This method expects a JSON document, which is to say a single JSON value optionally preceded
-   * and followed by whitespace. Any leading or trailing characters other than whitespace will cause
-   * an exception to be thrown. Users may use {@link #parseFragment(String)} to parse multiple
-   * values from a single string.
-   * </p>
-   * 
-   * <p>
-   * The method will return one of the following types:
-   * </p>
-   * 
-   * <ul>
-   * <li>{@link Map} - for JSON objects. Keys must be {@link String strings}, values must be one of
-   * these values.</li>
-   * <li>{@link List} - for JSON arrays. Values must be one of these values.</li>
-   * <li>{@link String} - for JSON strings</li>
-   * <li>{@link Number} - for JSON numbers</li>
-   * <li>{@link Boolean} - for JSON booleans</li>
-   * <li>{@link Null} - for JSON null, always {@code ==} to {@link #NULL}</li>
-   * </ul>
-   * 
-   * <p>
-   * The returned value is immutable.
-   * </p>
-   * 
-   * @param json the JSON string to parse
-   * @return the parsed value
-   * 
-   * @throws IllegalArgumentException if the input is not a valid JSON value, or if the input
-   *         contains non-whitespace leading or trailing characters
-   * @throws NullPointerException if the input is null
-   * 
-   * @see #parseImmutableFragment(String)
-   * @see #defaultImmutableParser()
-   * @see Parser#parseDocument(String)
-   */
-  public static Object parseImmutableDocument(String json) {
-    return defaultImmutableParser().parseDocument(json);
-  }
-
-
-  /**
-   * <p>
-   * Returns a stream of JSON fragments parsed from the given string using {@link #defaultParser()
-   * the default parser}. The elements of the stream will be mutable.
-   * </p>
-   * 
-   * <p>
-   * The string must contain all whitespace, or one or more JSON values optionally surrounded by
-   * whitespace. The values can be any valid JSON value, namely: an object, an array, a string, a
-   * number, a boolean, or null.
+   * The individual returned values are mutable.
    * </p>
    * 
    * <p>
    * This method can be used to parse data in [JSON Lines format](https://jsonlines.org/).
    * </p>
    * 
-   * @param json
-   * @return
-   */
-  public static Stream<Object> streamFragments(String json) {
-    return streamFragments(defaultParser(), json);
-  }
-
-  /**
-   * <p>
-   * Returns an iterator of JSON fragments from the given string. The string must contain all
-   * whitespace, or one or more JSON values optionally surrounded by whitespace. The values can be
-   * any valid JSON value, namely: an object, an array, a string, a number, a boolean, or null.
-   * </p>
+   * @param json The string to parse
+   * @return The iterator of parsed JSON values
+   *
+   * @throws IllegalArgumentException if the input is not a sequence of zero or more valid JSON
+   *         values separated by whitespace
+   * @throws NullPointerException if the input is null
    * 
-   * <p>
-   * This method can be used to parse data in [JSON Lines format](https://jsonlines.org/).
-   * </p>
-   * 
-   * @param parser the parser to use
-   * @param json the string to parse
-   * @return an iterator of JSON fragments
+   * @see #parseFragments(Parser, String)
    */
   public static Iterator<Object> parseFragments(Parser parser, String json) {
     if (json == null)
@@ -385,30 +284,45 @@ public class JustJson {
 
   /**
    * <p>
-   * Returns a valid JSON string representation of the given object. The result is guaranteed to be
-   * a valid JSON document.
+   * Uses the given parser to parse all of the fragments from the given string, returning the
+   * ordered sequence as a {@link Stream}. The string must contain zero or more JSON values
+   * separated by whitespace. The values can be any valid JSON value, namely: an object, an array, a
+   * string, a number, a boolean, or null.
    * </p>
    * 
    * <p>
-   * The given value can be one of the following types:
+   * The individual values in the returned stream are mutable.
    * </p>
    * 
-   * <ul>
-   * <li>{@link Map} - for JSON objects. Keys must be {@link String strings}, values must be one of
-   * these values.</li>
-   * <li>{@link List} - for JSON arrays. Values must be one of these values.</li>
-   * <li>{@link String} - for JSON strings</li>
-   * <li>{@link Number} - for JSON numbers</li>
-   * <li>{@link Boolean} - for JSON booleans</li>
-   * <li>{@link Null} - for JSON null, always {@code ==} to {@link #NULL}</li>
-   * </ul>
+   * <p>
+   * This method can be used to parse data in [JSON Lines format](https://jsonlines.org/).
+   * </p>
+   * 
+   * @param parser the parser to use
+   * @param json The string to parse. It must consist of either (a) all whitespace, in which case
+   *        the return stream will be empty; or (b) one or more valid JSON values, each separated by
+   *        one or more whitespace characters, with optional leading and trailing whitespace at the
+   *        beginning and end of the string.
+   * @return a stream of JSON fragments
+   */
+  public static Stream<Object> streamFragments(Parser parser, String json) {
+    return StreamSupport.stream(Spliterators.spliteratorUnknownSize(parseFragments(parser, json),
+        Spliterator.ORDERED | Spliterator.IMMUTABLE | Spliterator.NONNULL), false);
+  }
+
+  /**
+   * <p>
+   * Creates a new {@link #defaultEmitter() default emitter} and uses it to create a valid JSON
+   * string representation of the given object, then returns it. The result is guaranteed to be a
+   * valid JSON document.
+   * </p>
    * 
    * @param o the object to emit
    * @return the JSON string representation of the object
    * @throws IllegalArgumentException if the object is not a valid JSON value
    * 
    * @see #parseFragment(String)
-   * @see Emitter
+   * @see Emitter#emitDocument(Object)
    */
   public static String emitDocument(Object o) {
     return new Emitter().emitDocument(o);
@@ -436,8 +350,6 @@ public class JustJson {
    * <p>
    * The returned parser is not thread-safe.
    * </p>
-   * 
-   * @see #defaultImmutableParser()
    */
   public static Parser defaultParser() {
     return new Parser(1000, StringBuilder::toString, HashMap::new, Function.identity(),
@@ -447,8 +359,7 @@ public class JustJson {
 
   /**
    * <p>
-   * Returns a new default {@link Parser parser}, which has a maximum depth of 1000 and default
-   * factories:
+   * Returns a new {@link Parser parser}, which has a maximum depth of 1000 and default factories:
    * </p>
    * 
    * <ul>
@@ -460,7 +371,8 @@ public class JustJson {
    * </ul>
    * 
    * <p>
-   * The returned data structure is immutable.
+   * It is identical to the {@link #defaultParser() default parser}, except that the data structures
+   * it returns are immutable.
    * </p>
    * 
    * <p>
@@ -469,7 +381,7 @@ public class JustJson {
    * 
    * @see #defaultParser()
    */
-  public static Parser defaultImmutableParser() {
+  public static Parser immutableParser() {
     return new Parser(1000, StringBuilder::toString, HashMap::new, Collections::unmodifiableMap,
         ArrayList::new, Collections::unmodifiableList, StringBuilder::toString, BigDecimal::new,
         Boolean::parseBoolean);
@@ -578,8 +490,8 @@ public class JustJson {
 
     /**
      * <p>
-     * Parses a JSON value from the given string. The value can be any valid JSON value, namely: an
-     * object, an array, a string, a number, a boolean, or null.
+     * Parses the given JSON document. The document must contain exactly one JSON value of any type,
+     * namely: an object, an array, a string, a number, a boolean, or null.
      * </p>
      * 
      * <p>
@@ -590,18 +502,8 @@ public class JustJson {
      * </p>
      * 
      * <p>
-     * The method will return one of the following types:
+     * The returned value is mutable.
      * </p>
-     * 
-     * <ul>
-     * <li>{@link Map} - for JSON objects. Keys must be {@link String strings}, values must be one
-     * of these values.</li>
-     * <li>{@link List} - for JSON arrays. Values must be one of these values.</li>
-     * <li>{@link String} - for JSON strings</li>
-     * <li>{@link Number} - for JSON numbers</li>
-     * <li>{@link Boolean} - for JSON booleans</li>
-     * <li>{@link Null} - for JSON null, always {@code ==} to {@link #NULL}</li>
-     * </ul>
      * 
      * @param json the JSON string to parse
      * @return the parsed value
@@ -611,6 +513,7 @@ public class JustJson {
      * @throws NullPointerException if the input is null
      * 
      * @see #parseFragment(String)
+     * @see Emitter#emitDocument(Object)
      */
     public Object parseDocument(String json) {
       Object fragment = parseFragment(json);
@@ -626,7 +529,7 @@ public class JustJson {
 
     /**
      * <p>
-     * Parses the first JSON value from the given string. The string must start with a JSON value,
+     * Parses the first value from the given string. The string must start with a JSON value,
      * optionally preceded by whitespace. The value can be any valid JSON value, namely: an object,
      * an array, a string, a number, a boolean, or null.
      * </p>
@@ -638,23 +541,14 @@ public class JustJson {
      * </p>
      * 
      * <p>
-     * The method will return one of the following types:
+     * The returned value is mutable.
      * </p>
-     * 
-     * <ul>
-     * <li>{@link Map} - for JSON objects. Keys must be {@link String strings}, values must be one
-     * of these values.</li>
-     * <li>{@link List} - for JSON arrays. Values must be one of these values.</li>
-     * <li>{@link String} - for JSON strings</li>
-     * <li>{@link Number} - for JSON numbers</li>
-     * <li>{@link Boolean} - for JSON booleans</li>
-     * <li>{@link Null} - for JSON null, always {@code ==} to {@link #NULL}</li>
-     * </ul>
      * 
      * @param json the JSON string to parse
      * @return the parsed value
      * 
-     * @throws IllegalArgumentException if the input is not a valid JSON value
+     * @throws IllegalArgumentException if the input does not start with a valid JSON value,
+     *         optionally preceded by whitespace
      * @throws NullPointerException if the input is null
      * 
      * @see #parseDocument(String)
@@ -899,26 +793,32 @@ public class JustJson {
   public static class Emitter {
     /**
      * <p>
-     * Returns a valid JSON string representation of the given object. The object can be one of the
-     * following types:
+     * Create a valid JSON string representation of the given object, then returns it. The result is
+     * guaranteed to be a valid JSON document.
      * </p>
      * 
-     * <ul>
-     * <li>{@link Map} - for JSON objects. Keys must be {@link String strings}, values must be one
-     * of these values.</li>
-     * <li>{@link List} - for JSON arrays. Values must be one of these values.</li>
-     * <li>{@link String} - for JSON strings</li>
-     * <li>{@link Number} - for JSON numbers</li>
-     * <li>{@link Boolean} - for JSON booleans</li>
-     * <li>{@link Null} - for JSON null, always {@code ==} to {@link #NULL}</li>
-     * </ul>
+     * <p>
+     * This method is a convenience method that delegates to {@link #emitDocument(Object)}.
+     * </p>
      * 
      * @param o the object to emit
      * @return the JSON string representation of the object
-     * @throws IllegalArgumentException if the given object, or an element it contains, is not a
-     *         valid JSON value
-     * @throws NullPointerException if the given object, or an element it contains, is {@code null}.
-     *         Logical null values should be represented by {@link #NULL}.
+     */
+    public String emitDocument(Map<String, Object> o) {
+      return emitDocument((Object) o);
+    }
+
+    /**
+     * <p>
+     * Create a valid JSON string representation of the given object, then returns it. The result is
+     * guaranteed to be a valid JSON document.
+     * </p>
+     * 
+     * @param o the object to emit
+     * @return the JSON string representation of the object
+     * @throws IllegalArgumentException if the object is not a valid JSON value
+     * 
+     * @see Parser#parseDocument(String)
      */
     public String emitDocument(Object o) {
       if (o == null) {
