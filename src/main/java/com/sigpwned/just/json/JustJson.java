@@ -317,6 +317,28 @@ public class JustJson {
    * valid JSON document.
    * </p>
    * 
+   * <p>
+   * This is a convenience method for {@code #emitDocument(Object)}.
+   * </p>
+   * 
+   * @param o the object to emit
+   * @return the JSON string representation of the object
+   * @throws IllegalArgumentException if the object is not a valid JSON value
+   * 
+   * @see #parseFragment(String)
+   * @see Emitter#emitDocument(Object)
+   */
+  public static String emitDocument(Map<String, Object> o) {
+    return defaultEmitter().emitDocument(o);
+  }
+
+  /**
+   * <p>
+   * Creates a new {@link #defaultEmitter() default emitter} and uses it to create a valid JSON
+   * string representation of the given object, then returns it. The result is guaranteed to be a
+   * valid JSON document.
+   * </p>
+   * 
    * @param o the object to emit
    * @return the JSON string representation of the object
    * @throws IllegalArgumentException if the object is not a valid JSON value
@@ -325,7 +347,7 @@ public class JustJson {
    * @see Emitter#emitDocument(Object)
    */
   public static String emitDocument(Object o) {
-    return new Emitter().emitDocument(o);
+    return defaultEmitter().emitDocument(o);
   }
 
 
@@ -798,7 +820,7 @@ public class JustJson {
      * </p>
      * 
      * <p>
-     * This method is a convenience method that delegates to {@link #emitDocument(Object)}.
+     * This is a convenience method that delegates to {@link #emitDocument(Object)}.
      * </p>
      * 
      * @param o the object to emit
