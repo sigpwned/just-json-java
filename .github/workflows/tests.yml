@@ -1,0 +1,45 @@
+name: tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        # We just need the code, thanks
+        fetch-depth: 0
+    # It turns out to be important that we don't use JDK 22+, since annotation processors
+    # started to be opt-in starting in Java 22, which breaks JMH without additional config.
+    # We target Java 8, so let's just use Java 8.
+    - name: Set up JDK 8
+      uses: actions/setup-java@v4
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+        cache: maven
+    - name: Cache Maven packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+    - name: Build and analyze
+      run: |
+        mvn                                                    \
+        -B                                                     \
+        clean                                                  \
+        compile                                                \
+        test                                                   \
+        --file pom.xml
