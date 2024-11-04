@@ -29,7 +29,7 @@ Just JSON is in Maven Central, so you can simply add a dependency.
         <version>0.0.0</version>
     </dependency>
 
-Just JSON is a single Java file, so you can also just copy/paste it into your project, in a pinch.
+Just JSON is a single Java file with no dependencies, so you can also just copy/paste it into your project, in a pinch.
 
 ## Quickstart
 
