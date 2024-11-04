@@ -14,6 +14,9 @@ tests = []
 
 for line in sys.stdin:
     line = line.strip()
+    if line.startswith("#") or line == "":
+        continue
+    
     parts = [ part.strip() for part in line.split(":") ]
 
     supported = "PASS" in line
