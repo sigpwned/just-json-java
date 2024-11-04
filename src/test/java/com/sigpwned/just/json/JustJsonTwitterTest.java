@@ -17,38 +17,20 @@
  * limitations under the License.
  * ==================================LICENSE_END===================================
  */
-package com.sigpwned.just.json.benchmark;
+package com.sigpwned.just.json;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import static org.junit.Assert.assertEquals;
+import java.util.Map;
 import org.junit.Test;
 
-public class OrgJsonBenchmarkTest extends JsonBenchmarkBase {
+public class JustJsonTwitterTest {
   /**
-   * Adapted from
-   * https://github.com/nst/JSONTestSuite/blob/ce29be082120577cc73c137ddca62eab894cef93/parsers/test_java_org_json_2016_08/TestJSONParsing.java
+   * We should be able to parse Twitter data collected from the wild
    */
-  public Object parseJsonDocument(String s) {
-    try {
-      int idxArray = s.indexOf('[');
-      int idxObject = s.indexOf('{');
-
-      if (idxArray < 0 && idxObject < 0) {
-        // Give them a freebie, since there is no way to parse this
-        return null;
-      } else if (idxObject >= 0 && (idxArray < 0 || idxObject < idxArray)) {
-        return new JSONObject(s);
-      } else {
-        return new JSONArray(s);
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
-      return null;
-    }
-  }
-
   @Test
-  public void test() throws Exception {
-    run();
+  public void test() {
+    for (String tweet : TwitterTestSuite.readTwets1MbDataset()) {
+      assertEquals(true, JustJson.parseValue(tweet) instanceof Map);
+    }
   }
 }

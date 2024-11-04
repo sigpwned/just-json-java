@@ -42,7 +42,7 @@ import java.nio.file.Files;
  * Once the maintainer has reviewed the failed test cases and made any necessary changes to the
  * parser, he runs the generate-junit-tests.py script against the output of this application to
  * generate JUnit tests based on the coverage profile, and copies the generated code into
- * JustJsonTest. See the generate-junit-tests.py script for more information.
+ * {@link JustJsonTestSuite}. See the generate-junit-tests.py script for more information.
  * </p>
  */
 public class JsonTestSuiteRunner {

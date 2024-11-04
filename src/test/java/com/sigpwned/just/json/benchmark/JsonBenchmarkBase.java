@@ -19,11 +19,7 @@
  */
 package com.sigpwned.just.json.benchmark;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openjdk.jmh.annotations.Benchmark;
@@ -36,20 +32,15 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 import org.openjdk.jmh.runner.options.TimeValue;
-import com.sigpwned.just.json.JsonTestSuite;
-import com.sigpwned.just.json.JsonTestSuite.TestCaseType;
+import com.sigpwned.just.json.TwitterTestSuite;
 
 @State(Scope.Benchmark)
 public abstract class JsonBenchmarkBase {
   public List<String> documents;
 
   @Setup
-  public void setupJsonBenchmarkBase() throws IOException {
-    // Load our test cases
-    documents = new ArrayList<>();
-    for (File testCase : JsonTestSuite.listTestCases(TestCaseType.VALID)) {
-      documents.add(new String(Files.readAllBytes(testCase.toPath()), StandardCharsets.UTF_8));
-    }
+  public void setupJsonBenchmarkBase() {
+    documents = TwitterTestSuite.readTwets1MbDataset();
   }
 
 
@@ -57,19 +48,20 @@ public abstract class JsonBenchmarkBase {
 
   @Benchmark
   public void benchmark(Blackhole blackhole) throws IOException {
-    for (String document : documents) {
-      blackhole.consume(parseJsonDocument(document));
+    try {
+      for (String document : documents) {
+        blackhole.consume(parseJsonDocument(document));
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
     }
   }
 
   public void run() throws Exception {
-    Options opt = new OptionsBuilder()
-        // Specify which benchmarks to run.
-        // You can be more specific if you'd like to run only one benchmark per test.
-        .include(getClass().getName() + ".*")
+    Options opt = new OptionsBuilder().include(getClass().getSimpleName())
         // Set the following options as needed
         .mode(Mode.Throughput).timeUnit(TimeUnit.SECONDS).warmupTime(TimeValue.seconds(1))
-        .warmupIterations(3).measurementTime(TimeValue.seconds(1)).measurementIterations(3).forks(3)
+        .warmupIterations(3).measurementTime(TimeValue.seconds(1)).measurementIterations(5).forks(3)
         .shouldFailOnError(true)
         // .jvmArgs("-XX:+UnlockDiagnosticVMOptions", "-XX:+PrintInlining")
         // .addProfiler(WinPerfAsmProfiler.class)

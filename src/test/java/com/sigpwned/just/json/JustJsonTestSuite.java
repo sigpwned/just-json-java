@@ -38,7 +38,7 @@ import org.junit.Test;
  * script should be re-run to regenerate the tests.
  * </p>
  */
-public class JustJsonTest {
+public class JustJsonTestSuite {
   // SUPPORTED TESTS ///////////////////////////////////////////////////////////////////////////////
   /**
    * y_array_empty-string.json

@@ -19,28 +19,22 @@
  */
 package com.sigpwned.just.json.benchmark;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.junit.Test;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class OrgJsonBenchmarkTest extends JsonBenchmarkBase {
+public class JacksonBenchmarkTest extends JsonBenchmarkBase {
   /**
    * Adapted from
-   * https://github.com/nst/JSONTestSuite/blob/ce29be082120577cc73c137ddca62eab894cef93/parsers/test_java_org_json_2016_08/TestJSONParsing.java
+   * https://github.com/nst/JSONTestSuite/blob/019e073da547948740b0436bdec8cbe2a829adf1/parsers/test_java_jackson_2_8_4/TestJSONParsing.java
    */
   public Object parseJsonDocument(String s) {
     try {
-      int idxArray = s.indexOf('[');
-      int idxObject = s.indexOf('{');
-
-      if (idxArray < 0 && idxObject < 0) {
-        // Give them a freebie, since there is no way to parse this
-        return null;
-      } else if (idxObject >= 0 && (idxArray < 0 || idxObject < idxArray)) {
-        return new JSONObject(s);
-      } else {
-        return new JSONArray(s);
-      }
+      JsonFactory factory = new JsonFactory();
+      ObjectMapper mapper = new ObjectMapper(factory);
+      JsonNode rootNode = mapper.readTree(s);
+      return rootNode;
     } catch (Exception e) {
       e.printStackTrace();
       return null;
