@@ -8,7 +8,7 @@
     <version>0.0.0-SNAPSHOT</version>
     <name>just-json</name>
     <inceptionYear>2024</inceptionYear>
-    <description>Minimal JSON Parser and Generator for Java 8+</description>
+    <description>Minimal JSON Parser and Emitter for Java 8+</description>
     <url>https://github.com/sigpwned/just-json-java</url>
     <packaging>jar</packaging>
 
