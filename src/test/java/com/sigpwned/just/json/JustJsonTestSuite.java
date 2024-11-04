@@ -49,7 +49,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_array_empty-string.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -68,7 +68,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_null_escape.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -87,7 +87,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/y_array_null.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -106,7 +106,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_1_2_3_bytes_UTF-8_sequences.json")
               .toPath())));
       problem = null;
@@ -126,7 +126,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_real_exponent.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -145,7 +145,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(
+      JustJson.parseDocument(new String(
           Files.readAllBytes(new File("src/test/resources/test_parsing/y_object.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -164,7 +164,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_minus_zero.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -183,7 +183,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_double_close_to_zero.json")
               .toPath())));
       problem = null;
@@ -203,7 +203,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_allowed_escapes.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -222,7 +222,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/y_array_empty.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -241,7 +241,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_structure_string_empty.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -260,7 +260,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/y_object_empty.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -279,7 +279,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/y_string_pi.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -298,7 +298,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_escaped_noncharacter.json")
               .toPath())));
       problem = null;
@@ -318,7 +318,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_int_with_exp.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -337,7 +337,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_object_duplicated_key_and_value.json")
               .toPath())));
       problem = null;
@@ -357,7 +357,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_last_surrogates_1_and_2.json")
               .toPath())));
       problem = null;
@@ -377,7 +377,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_accepted_surrogate_pair.json")
               .toPath())));
       problem = null;
@@ -397,7 +397,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_structure_lonely_false.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -416,7 +416,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_real_capital_e_pos_exp.json")
               .toPath())));
       problem = null;
@@ -436,7 +436,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_unicode.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -455,7 +455,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_structure_true_in_array.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -474,7 +474,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_unicode_U+1FFFE_nonchar.json")
               .toPath())));
       problem = null;
@@ -494,7 +494,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_backslash_and_u_escaped_zero.json")
               .toPath())));
       problem = null;
@@ -514,7 +514,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_three-byte-utf-8.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -533,7 +533,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_backslash_doublequotes.json")
               .toPath())));
       problem = null;
@@ -553,7 +553,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_uescaped_newline.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -572,7 +572,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_after_space.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -591,7 +591,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_negative_one.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -610,7 +610,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_structure_lonely_int.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -629,7 +629,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_structure_lonely_negative_real.json")
               .toPath())));
       problem = null;
@@ -649,7 +649,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_unicode_escaped_double_quote.json")
               .toPath())));
       problem = null;
@@ -669,7 +669,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_real_capital_e.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -688,7 +688,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_double_escape_a.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -707,7 +707,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_real_fraction_exponent.json")
               .toPath())));
       problem = null;
@@ -727,7 +727,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_comments.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -746,7 +746,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_structure_lonely_null.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -765,7 +765,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/y_string_space.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -784,7 +784,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_uEscape.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -803,7 +803,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_array_with_1_and_newline.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -822,7 +822,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/y_number_0e+1.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -841,7 +841,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_object_with_newlines.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -860,7 +860,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_real_capital_e_neg_exp.json")
               .toPath())));
       problem = null;
@@ -880,7 +880,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_structure_lonely_string.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -899,7 +899,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_negative_int.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -918,7 +918,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_array_ending_with_newline.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -937,7 +937,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_simple_real.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -956,7 +956,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_unicode_U+200B_ZERO_WIDTH_SPACE.json")
               .toPath())));
       problem = null;
@@ -976,7 +976,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_u+2028_line_sep.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -995,7 +995,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_structure_lonely_true.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1014,7 +1014,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_two-byte-utf-8.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1033,7 +1033,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_unicodeEscapedBackslash.json")
               .toPath())));
       problem = null;
@@ -1053,7 +1053,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_object_simple.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1072,7 +1072,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_unicode_U+2064_invisible_plus.json")
               .toPath())));
       problem = null;
@@ -1092,7 +1092,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_escaped_control_character.json")
               .toPath())));
       problem = null;
@@ -1112,7 +1112,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_simple_ascii.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1131,7 +1131,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_unicode_U+10FFFE_nonchar.json")
               .toPath())));
       problem = null;
@@ -1151,7 +1151,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/y_string_utf8.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1170,7 +1170,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_unescaped_char_delete.json")
               .toPath())));
       problem = null;
@@ -1190,7 +1190,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_object_extreme_numbers.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1209,7 +1209,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_object_long_strings.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1228,7 +1228,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_negative_zero.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1247,7 +1247,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_array_with_leading_space.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1266,7 +1266,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_structure_trailing_newline.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1285,7 +1285,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(new File(
+      JustJson.parseDocument(new String(Files.readAllBytes(new File(
           "src/test/resources/test_parsing/y_string_surrogates_U+1D11E_MUSICAL_SYMBOL_G_CLEF.json")
               .toPath())));
       problem = null;
@@ -1305,7 +1305,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_object_string_unicode.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1324,7 +1324,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/y_number_0e1.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1343,7 +1343,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_real_pos_exponent.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1362,7 +1362,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_double_escape_n.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1381,7 +1381,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_array_arraysWithSpaces.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1400,7 +1400,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_array_heterogeneous.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1419,7 +1419,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_with_del_character.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1438,7 +1438,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_array_with_several_null.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1457,7 +1457,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_simple_int.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1476,7 +1476,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_object_empty_key.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1495,7 +1495,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_nonCharacterInUTF-8_U+FFFF.json")
               .toPath())));
       problem = null;
@@ -1515,7 +1515,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_object_escaped_null_in_key.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1534,7 +1534,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_accepted_surrogate_pairs.json")
               .toPath())));
       problem = null;
@@ -1554,7 +1554,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_number_real_neg_exp.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1573,7 +1573,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_structure_whitespace_array.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1592,7 +1592,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_in_array_with_leading_space.json")
               .toPath())));
       problem = null;
@@ -1612,7 +1612,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_nonCharacterInUTF-8_U+10FFFF.json")
               .toPath())));
       problem = null;
@@ -1632,7 +1632,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_array_with_trailing_space.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1651,7 +1651,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_object_duplicated_key.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1670,7 +1670,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_one-byte-utf-8.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1689,7 +1689,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_unicode_2.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1708,7 +1708,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_unicode_U+FDD0_nonchar.json")
               .toPath())));
       problem = null;
@@ -1728,7 +1728,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_nbsp_uescaped.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1747,7 +1747,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/y_array_false.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1766,7 +1766,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_unicode_U+FFFE_nonchar.json")
               .toPath())));
       problem = null;
@@ -1786,7 +1786,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_reservedCharacterInUTF-8_U+1BFFF.json")
               .toPath())));
       problem = null;
@@ -1806,7 +1806,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_u+2029_par_sep.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1825,7 +1825,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/y_object_basic.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1844,7 +1844,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/y_string_in_array.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1863,7 +1863,7 @@ public class JustJsonTestSuite {
     // This is a "y" test, so the file contains valid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(
+      JustJson.parseDocument(new String(
           Files.readAllBytes(new File("src/test/resources/test_parsing/y_number.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1882,7 +1882,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_minus_sign_with_trailing_garbage.json")
               .toPath())));
       problem = null;
@@ -1902,7 +1902,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_with_single_string.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1921,7 +1921,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_unescaped_ctrl_char.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1940,7 +1940,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_missing_value.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1959,7 +1959,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_open_object_close_array.json")
               .toPath())));
       problem = null;
@@ -1979,7 +1979,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_unclosed_array.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -1998,7 +1998,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_escape_x.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2017,7 +2017,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_invalid-utf-8-in-bigger-int.json")
               .toPath())));
       problem = null;
@@ -2037,7 +2037,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_invalid-utf-8-in-exponent.json")
               .toPath())));
       problem = null;
@@ -2057,7 +2057,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_single_space.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2076,7 +2076,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_unquoted_key.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2095,7 +2095,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_a_invalid_utf8.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2114,7 +2114,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_several_trailing_commas.json")
               .toPath())));
       problem = null;
@@ -2134,7 +2134,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_single_eacute.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2153,7 +2153,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_open_object_comma.json")
               .toPath())));
       problem = null;
@@ -2173,7 +2173,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_just_minus.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2192,7 +2192,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_open_object_open_array.json")
               .toPath())));
       problem = null;
@@ -2212,7 +2212,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_invalid_unicode_escape.json")
               .toPath())));
       problem = null;
@@ -2232,7 +2232,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_9.e+.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2251,7 +2251,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_incomplete_escape.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2270,7 +2270,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(new File(
+      JustJson.parseDocument(new String(Files.readAllBytes(new File(
           "src/test/resources/test_parsing/n_structure_unclosed_array_unfinished_false.json")
               .toPath())));
       problem = null;
@@ -2290,7 +2290,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_1.0e+.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2309,7 +2309,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_-NaN.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2328,7 +2328,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_unescaped_tab.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2347,7 +2347,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_ascii-unicode-identifier.json")
               .toPath())));
       problem = null;
@@ -2367,7 +2367,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_incomplete_surrogate.json")
               .toPath())));
       problem = null;
@@ -2387,7 +2387,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_items_separated_by_semicolon.json")
               .toPath())));
       problem = null;
@@ -2407,7 +2407,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_infinity.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2426,8 +2426,28 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(new File(
+      JustJson.parseDocument(new String(Files.readAllBytes(new File(
           "src/test/resources/test_parsing/n_structure_comma_instead_of_closing_brace.json")
+              .toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_string_with_trailing_garbage.json
+   */
+  @Test
+  public void noStringWithTrailingGarbage() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_string_with_trailing_garbage.json")
               .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2446,7 +2466,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_0.1.2.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2465,7 +2485,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_uescaped_LF_before_string.json")
               .toPath())));
       problem = null;
@@ -2485,7 +2505,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_Inf.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2504,7 +2524,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_incomplete.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2523,7 +2543,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_accentuated_char_no_quotes.json")
               .toPath())));
       problem = null;
@@ -2543,7 +2563,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_.2e-3.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2562,7 +2582,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_open_array_comma.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2581,8 +2601,27 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_missing_value.json").toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_object_trailing_comma.json
+   */
+  @Test
+  public void noObjectTrailingComma() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_object_trailing_comma.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -2600,7 +2639,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_two_commas_in_a_row.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2619,7 +2658,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_no_data.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2638,7 +2677,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_single_star.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2657,7 +2696,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_invalid-negative-real.json")
               .toPath())));
       problem = null;
@@ -2677,7 +2716,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_lone-invalid-utf-8.json")
               .toPath())));
       problem = null;
@@ -2697,7 +2736,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_incomplete_invalid_value.json")
               .toPath())));
       problem = null;
@@ -2717,7 +2756,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_0e.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2736,7 +2775,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_invalid-utf-8-in-int.json")
               .toPath())));
       problem = null;
@@ -2756,9 +2795,28 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_invalid_utf8_after_escape.json")
               .toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_array_number_and_comma.json
+   */
+  @Test
+  public void noArrayNumberAndComma() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_array_number_and_comma.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -2776,7 +2834,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_unclosed_object.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2795,8 +2853,28 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_starting_with_dot.json").toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_structure_whitespace_formfeed.json
+   */
+  @Test
+  public void noStructureWhitespaceFormfeed() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_structure_whitespace_formfeed.json")
+              .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -2814,7 +2892,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_key_with_single_quotes.json")
               .toPath())));
       problem = null;
@@ -2834,8 +2912,28 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_unclosed_array_partial_null.json")
+              .toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_structure_object_with_trailing_garbage.json
+   */
+  @Test
+  public void noStructureObjectWithTrailingGarbage() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_structure_object_with_trailing_garbage.json")
               .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2854,7 +2952,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_non_string_key.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2873,7 +2971,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_1.0e-.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2892,7 +2990,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_++.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2911,7 +3009,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_garbage_at_end.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2930,7 +3028,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_number_and_several_commas.json")
               .toPath())));
       problem = null;
@@ -2950,7 +3048,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_UTF8_BOM_no_data.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -2969,8 +3067,28 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_single_doublequote.json").toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_object_lone_continuation_byte_in_key_and_trailing_comma.json
+   */
+  @Test
+  public void noObjectLoneContinuationByteInKeyAndTrailingComma() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(new File(
+          "src/test/resources/test_parsing/n_object_lone_continuation_byte_in_key_and_trailing_comma.json")
+              .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -2988,7 +3106,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_end_array.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3007,8 +3125,27 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_unicode_CapitalU.json").toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_array_extra_comma.json
+   */
+  @Test
+  public void noArrayExtraComma() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_array_extra_comma.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -3026,7 +3163,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_with_alpha_char.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3045,7 +3182,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_backslash_00.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3064,7 +3201,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_whitespace_U+2060_word_joiner.json")
               .toPath())));
       problem = null;
@@ -3084,7 +3221,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_capitalized_True.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3103,8 +3240,47 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_star_inside.json").toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_object_trailing_comment_slash_open.json
+   */
+  @Test
+  public void noObjectTrailingCommentSlashOpen() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_object_trailing_comment_slash_open.json")
+              .toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_array_1_true_without_comma.json
+   */
+  @Test
+  public void noArray1TrueWithoutComma() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_array_1_true_without_comma.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -3122,7 +3298,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_with_alpha.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3141,7 +3317,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_open_array_apostrophe.json")
               .toPath())));
       problem = null;
@@ -3161,7 +3337,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_object_unclosed_no_value.json")
               .toPath())));
       problem = null;
@@ -3181,7 +3357,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_0_capital_E.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3200,7 +3376,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_incomplete_true.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3219,7 +3395,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_double_extra_comma.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3238,7 +3414,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_+Inf.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3257,8 +3433,28 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_hex_2_digits.json").toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_structure_close_unopened_array.json
+   */
+  @Test
+  public void noStructureCloseUnopenedArray() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_structure_close_unopened_array.json")
+              .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -3276,7 +3472,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_comma_instead_of_colon.json")
               .toPath())));
       problem = null;
@@ -3296,7 +3492,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(new File(
+      JustJson.parseDocument(new String(Files.readAllBytes(new File(
           "src/test/resources/test_parsing/n_structure_open_object_string_with_apostrophes.json")
               .toPath())));
       problem = null;
@@ -3316,7 +3512,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_object_with_comment.json")
               .toPath())));
       problem = null;
@@ -3336,8 +3532,28 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(new File(
+      JustJson.parseDocument(new String(Files.readAllBytes(new File(
           "src/test/resources/test_parsing/n_string_incomplete_surrogate_escape_invalid.json")
+              .toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_object_trailing_comment_open.json
+   */
+  @Test
+  public void noObjectTrailingCommentOpen() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_object_trailing_comment_open.json")
               .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3356,8 +3572,28 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_colon_instead_of_comma.json")
+              .toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_object_trailing_comment_slash_open_incomplete.json
+   */
+  @Test
+  public void noObjectTrailingCommentSlashOpenIncomplete() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(new File(
+          "src/test/resources/test_parsing/n_object_trailing_comment_slash_open_incomplete.json")
               .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3376,9 +3612,48 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_unclosed_with_object_inside.json")
               .toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_structure_array_trailing_garbage.json
+   */
+  @Test
+  public void noStructureArrayTrailingGarbage() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_structure_array_trailing_garbage.json")
+              .toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_structure_double_array.json
+   */
+  @Test
+  public void noStructureDoubleArray() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_structure_double_array.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -3396,7 +3671,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_newlines_unclosed.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3415,7 +3690,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_missing_colon.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3434,7 +3709,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_missing_semicolon.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3453,7 +3728,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_minus_space_1.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3472,7 +3747,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_open_object.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3491,7 +3766,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_escaped_ctrl_char_tab.json")
               .toPath())));
       problem = null;
@@ -3511,7 +3786,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_invalid+-.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3530,7 +3805,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_100000_opening_arrays.json")
               .toPath())));
       problem = null;
@@ -3550,7 +3825,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_leading_uescaped_thinspace.json")
               .toPath())));
       problem = null;
@@ -3570,7 +3845,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_0.3e.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3589,8 +3864,28 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_lone-open-bracket.json")
+              .toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_structure_object_followed_by_closing_object.json
+   */
+  @Test
+  public void noStructureObjectFollowedByClosingObject() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(new File(
+          "src/test/resources/test_parsing/n_structure_object_followed_by_closing_object.json")
               .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3609,7 +3904,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_0e+.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3628,7 +3923,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_unicode-identifier.json")
               .toPath())));
       problem = null;
@@ -3648,7 +3943,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_1eE2.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3667,7 +3962,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_+1.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3686,8 +3981,27 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_incomplete_null.json").toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_multidigit_number_then_00.json
+   */
+  @Test
+  public void noMultidigitNumberThen00() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_multidigit_number_then_00.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -3705,7 +4019,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_1_surrogate_then_escape_u.json")
               .toPath())));
       problem = null;
@@ -3725,7 +4039,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_double_comma.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3744,7 +4058,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_invalid_utf8.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3763,7 +4077,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_repeated_null_null.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3782,7 +4096,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_bad_value.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3801,7 +4115,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_no_quotes_with_bad_escape.json")
               .toPath())));
       problem = null;
@@ -3821,7 +4135,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_neg_with_garbage_at_end.json")
               .toPath())));
       problem = null;
@@ -3841,7 +4155,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_1_surrogate_then_escape_u1.json")
               .toPath())));
       problem = null;
@@ -3861,7 +4175,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_spaces_vertical_tab_formfeed.json")
               .toPath())));
       problem = null;
@@ -3881,7 +4195,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_open_array_object.json")
               .toPath())));
       problem = null;
@@ -3901,7 +4215,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_open_object_open_string.json")
               .toPath())));
       problem = null;
@@ -3921,7 +4235,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(new File(
+      JustJson.parseDocument(new String(Files.readAllBytes(new File(
           "src/test/resources/test_parsing/n_object_non_string_key_but_huge_number_instead.json")
               .toPath())));
       problem = null;
@@ -3941,7 +4255,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_single_quote.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3960,7 +4274,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_0.3e+.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -3979,7 +4293,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_real_garbage_after_e.json")
               .toPath())));
       problem = null;
@@ -3999,8 +4313,28 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_escaped_backslash_bad.json")
+              .toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_object_with_trailing_garbage.json
+   */
+  @Test
+  public void noObjectWithTrailingGarbage() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_object_with_trailing_garbage.json")
               .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4019,7 +4353,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_expression.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4038,7 +4372,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_open_array_string.json")
               .toPath())));
       problem = null;
@@ -4058,7 +4392,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_missing_key.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4077,8 +4411,47 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_1_surrogate_then_escape_u1x.json")
+              .toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_structure_trailing_#.json
+   */
+  @Test
+  public void noStructureTrailing() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_structure_trailing_#.json").toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_structure_array_with_extra_array_close.json
+   */
+  @Test
+  public void noStructureArrayWithExtraArrayClose() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_structure_array_with_extra_array_close.json")
               .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4097,7 +4470,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_angle_bracket_..json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4116,7 +4489,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_bracket_key.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4135,7 +4508,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_NaN.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4154,7 +4527,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_single_string_no_double_quotes.json")
               .toPath())));
       problem = null;
@@ -4174,7 +4547,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_unescaped_newline.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4193,8 +4566,27 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_single_quote.json").toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_number_1_000.json
+   */
+  @Test
+  public void noNumber1000() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files
+          .readAllBytes(new File("src/test/resources/test_parsing/n_number_1_000.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -4212,7 +4604,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_incomplete_escaped_character.json")
               .toPath())));
       problem = null;
@@ -4232,8 +4624,27 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_no-colon.json").toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_object_trailing_comment.json
+   */
+  @Test
+  public void noObjectTrailingComment() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_object_trailing_comment.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -4251,7 +4662,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_incomplete_false.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4270,7 +4681,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_null-byte-outside-string.json")
               .toPath())));
       problem = null;
@@ -4290,8 +4701,28 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_.-1.json").toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_structure_number_with_trailing_garbage.json
+   */
+  @Test
+  public void noStructureNumberWithTrailingGarbage() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_structure_number_with_trailing_garbage.json")
+              .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -4309,7 +4740,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_invalid_backslash_esc.json")
               .toPath())));
       problem = null;
@@ -4329,7 +4760,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_minus_infinity.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4348,7 +4779,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_unclosed.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4367,7 +4798,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_real_with_invalid_utf8_after_e.json")
               .toPath())));
       problem = null;
@@ -4387,7 +4818,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_open_open.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4406,7 +4837,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_1.0e.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4425,7 +4856,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_unclosed_trailing_comma.json")
               .toPath())));
       problem = null;
@@ -4445,7 +4876,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_comma_and_number.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4464,7 +4895,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_1_surrogate_then_escape.json")
               .toPath())));
       problem = null;
@@ -4484,7 +4915,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(new File(
+      JustJson.parseDocument(new String(Files.readAllBytes(new File(
           "src/test/resources/test_parsing/n_structure_unclosed_array_unfinished_true.json")
               .toPath())));
       problem = null;
@@ -4504,8 +4935,27 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_escaped_emoji.json").toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_array_comma_after_close.json
+   */
+  @Test
+  public void noArrayCommaAfterClose() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_array_comma_after_close.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -4523,7 +4973,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_U+2060_word_joined.json")
               .toPath())));
       problem = null;
@@ -4543,7 +4993,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_unclosed_with_new_lines.json")
               .toPath())));
       problem = null;
@@ -4563,7 +5013,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_angle_bracket_null.json")
               .toPath())));
       problem = null;
@@ -4583,7 +5033,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_object_emoji.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4602,7 +5052,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_unterminated-value.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4621,7 +5071,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_array_with_unclosed_string.json")
               .toPath())));
       problem = null;
@@ -4641,7 +5091,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_object_double_colon.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4660,9 +5110,47 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_open_array_open_string.json")
               .toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_array_extra_close.json
+   */
+  @Test
+  public void noArrayExtraClose() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_array_extra_close.json").toPath())));
+      problem = null;
+    } catch (IllegalArgumentException e) {
+      problem = e;
+    }
+
+    assertNotNull(problem);
+  }
+
+  /**
+   * n_array_inner_array_no_comma.json
+   */
+  @Test
+  public void noArrayInnerArrayNoComma() throws IOException {
+    // This test is currently DISABLED because the implementation is known not to pass it.
+    // This is a "n" test, so the file contains invalid JSON.
+    IllegalArgumentException problem;
+    try {
+      JustJson.parseDocument(new String(Files.readAllBytes(
+          new File("src/test/resources/test_parsing/n_array_inner_array_no_comma.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -4680,7 +5168,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_start_escape_unclosed.json")
               .toPath())));
       problem = null;
@@ -4700,7 +5188,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_string_invalid-utf-8-in-escape.json")
               .toPath())));
       problem = null;
@@ -4720,7 +5208,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_open_array_open_object.json")
               .toPath())));
       problem = null;
@@ -4740,7 +5228,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_hex_1_digit.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4759,7 +5247,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_structure_incomplete_UTF8_BOM.json")
               .toPath())));
       problem = null;
@@ -4779,7 +5267,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_-1.0..json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4798,7 +5286,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_0_capital_E+.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4817,7 +5305,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_array_just_comma.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4838,7 +5326,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_-2..json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4858,90 +5346,8 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_with_leading_zero.json").toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_string_with_trailing_garbage.json
-   */
-  @Test
-  @Ignore
-  public void noStringWithTrailingGarbage() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_string_with_trailing_garbage.json")
-              .toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_object_trailing_comma.json
-   */
-  @Test
-  @Ignore
-  public void noObjectTrailingComma() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_object_trailing_comma.json").toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_array_number_and_comma.json
-   */
-  @Test
-  @Ignore
-  public void noArrayNumberAndComma() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_array_number_and_comma.json").toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_structure_whitespace_formfeed.json
-   */
-  @Test
-  @Ignore
-  public void noStructureWhitespaceFormfeed() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_structure_whitespace_formfeed.json")
-              .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -4960,7 +5366,7 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_2.e3.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -4980,29 +5386,8 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_U+FF11_fullwidth_digit_one.json")
-              .toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_structure_object_with_trailing_garbage.json
-   */
-  @Test
-  @Ignore
-  public void noStructureObjectWithTrailingGarbage() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_structure_object_with_trailing_garbage.json")
               .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -5022,153 +5407,8 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_-01.json").toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_object_lone_continuation_byte_in_key_and_trailing_comma.json
-   */
-  @Test
-  @Ignore
-  public void noObjectLoneContinuationByteInKeyAndTrailingComma() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(new File(
-          "src/test/resources/test_parsing/n_object_lone_continuation_byte_in_key_and_trailing_comma.json")
-              .toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_array_extra_comma.json
-   */
-  @Test
-  @Ignore
-  public void noArrayExtraComma() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_array_extra_comma.json").toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_object_trailing_comment_slash_open.json
-   */
-  @Test
-  @Ignore
-  public void noObjectTrailingCommentSlashOpen() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_object_trailing_comment_slash_open.json")
-              .toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_array_1_true_without_comma.json
-   */
-  @Test
-  @Ignore
-  public void noArray1TrueWithoutComma() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_array_1_true_without_comma.json").toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_structure_close_unopened_array.json
-   */
-  @Test
-  @Ignore
-  public void noStructureCloseUnopenedArray() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_structure_close_unopened_array.json")
-              .toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_object_trailing_comment_open.json
-   */
-  @Test
-  @Ignore
-  public void noObjectTrailingCommentOpen() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_object_trailing_comment_open.json")
-              .toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_object_trailing_comment_slash_open_incomplete.json
-   */
-  @Test
-  @Ignore
-  public void noObjectTrailingCommentSlashOpenIncomplete() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(new File(
-          "src/test/resources/test_parsing/n_object_trailing_comment_slash_open_incomplete.json")
-              .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -5187,49 +5427,8 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_2.e+3.json").toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_structure_array_trailing_garbage.json
-   */
-  @Test
-  @Ignore
-  public void noStructureArrayTrailingGarbage() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_structure_array_trailing_garbage.json")
-              .toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_structure_double_array.json
-   */
-  @Test
-  @Ignore
-  public void noStructureDoubleArray() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_structure_double_array.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -5248,50 +5447,9 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_neg_int_starting_with_zero.json")
               .toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_structure_object_followed_by_closing_object.json
-   */
-  @Test
-  @Ignore
-  public void noStructureObjectFollowedByClosingObject() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(new File(
-          "src/test/resources/test_parsing/n_structure_object_followed_by_closing_object.json")
-              .toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_multidigit_number_then_00.json
-   */
-  @Test
-  @Ignore
-  public void noMultidigitNumberThen00() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_multidigit_number_then_00.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -5310,70 +5468,8 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_2.e-3.json").toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_object_with_trailing_garbage.json
-   */
-  @Test
-  @Ignore
-  public void noObjectWithTrailingGarbage() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_object_with_trailing_garbage.json")
-              .toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_structure_trailing_#.json
-   */
-  @Test
-  @Ignore
-  public void noStructureTrailing() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_structure_trailing_#.json").toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_structure_array_with_extra_array_close.json
-   */
-  @Test
-  @Ignore
-  public void noStructureArrayWithExtraArrayClose() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_structure_array_with_extra_array_close.json")
-              .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -5392,69 +5488,8 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_neg_real_without_int_part.json")
-              .toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_number_1_000.json
-   */
-  @Test
-  @Ignore
-  public void noNumber1000() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files
-          .readAllBytes(new File("src/test/resources/test_parsing/n_number_1_000.json").toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_object_trailing_comment.json
-   */
-  @Test
-  @Ignore
-  public void noObjectTrailingComment() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_object_trailing_comment.json").toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_structure_number_with_trailing_garbage.json
-   */
-  @Test
-  @Ignore
-  public void noStructureNumberWithTrailingGarbage() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_structure_number_with_trailing_garbage.json")
               .toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
@@ -5474,29 +5509,9 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files.readAllBytes(
+      JustJson.parseDocument(new String(Files.readAllBytes(
           new File("src/test/resources/test_parsing/n_number_real_without_fractional_part.json")
               .toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_array_comma_after_close.json
-   */
-  @Test
-  @Ignore
-  public void noArrayCommaAfterClose() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_array_comma_after_close.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;
@@ -5515,48 +5530,8 @@ public class JustJsonTestSuite {
     // This is a "n" test, so the file contains invalid JSON.
     IllegalArgumentException problem;
     try {
-      JustJson.parseValue(new String(Files
+      JustJson.parseDocument(new String(Files
           .readAllBytes(new File("src/test/resources/test_parsing/n_number_0.e1.json").toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_array_extra_close.json
-   */
-  @Test
-  @Ignore
-  public void noArrayExtraClose() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_array_extra_close.json").toPath())));
-      problem = null;
-    } catch (IllegalArgumentException e) {
-      problem = e;
-    }
-
-    assertNotNull(problem);
-  }
-
-  /**
-   * n_array_inner_array_no_comma.json
-   */
-  @Test
-  @Ignore
-  public void noArrayInnerArrayNoComma() throws IOException {
-    // This test is currently DISABLED because the implementation is known not to pass it.
-    // This is a "n" test, so the file contains invalid JSON.
-    IllegalArgumentException problem;
-    try {
-      JustJson.parseValue(new String(Files.readAllBytes(
-          new File("src/test/resources/test_parsing/n_array_inner_array_no_comma.json").toPath())));
       problem = null;
     } catch (IllegalArgumentException e) {
       problem = e;

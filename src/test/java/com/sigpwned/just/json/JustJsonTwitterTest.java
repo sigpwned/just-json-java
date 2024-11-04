@@ -30,7 +30,7 @@ public class JustJsonTwitterTest {
   @Test
   public void test() {
     for (String tweet : TwitterTestSuite.readTwets1MbDataset()) {
-      assertEquals(true, JustJson.parseValue(tweet) instanceof Map);
+      assertEquals(true, JustJson.parseFragment(tweet) instanceof Map);
     }
   }
 }

@@ -25,7 +25,7 @@ import com.sigpwned.just.json.JustJson;
 public class JustJsonBenchmarkTest extends JsonBenchmarkBase {
   public Object parseJsonDocument(String document) {
     try {
-      return JustJson.parseValue(document);
+      return JustJson.parseDocument(document);
     } catch (Exception e) {
       e.printStackTrace();
       return null;

@@ -57,7 +57,7 @@ def print_test(test):
     print(f"    // This is a \"{yn}\" test, so the file contains {'valid' if yn == 'y' else 'invalid'} JSON.")
     print(f"    IllegalArgumentException problem;")
     print(f"    try {{")
-    print(f"        JustJson.parseValue(new String(Files.readAllBytes(new File(\"{test_dir}/{filename}\").toPath())));")
+    print(f"        JustJson.parseDocument(new String(Files.readAllBytes(new File(\"{test_dir}/{filename}\").toPath())));")
     print(f"        problem = null;")
     print(f"    }}")
     print(f"    catch(IllegalArgumentException e) {{")

@@ -22,6 +22,7 @@ package com.sigpwned.just.json;
 import static java.util.Objects.requireNonNull;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,10 +58,16 @@ public class JustJson {
 
   /**
    * <p>
-   * Parses the first JSON value from the given string. The string must start with a JSON value,
-   * optionally preceded by whitespace. The value can be an valid JSON value, namely: an object, an
-   * array, a string, a number, a boolean, or null. Any trailing characters after the first value
-   * will be ignored.
+   * Creates a new {@link #defaultParser() default parser} and uses it to parse the first value from
+   * the given string.The string must start with a JSON value, optionally preceded by whitespace.
+   * The value can be any valid JSON value, namely: an object, an array, a string, a number, a
+   * boolean, or null.
+   * </p>
+   * 
+   * <p>
+   * Parsing stops as soon as the first value is parsed. Any trailing characters after the first
+   * value will be ignored. The user may call {@link #getIndex()} to determine the position of the
+   * first unparsed character to find the remaining input.
    * </p>
    * 
    * <p>
@@ -77,22 +84,172 @@ public class JustJson {
    * <li>{@link Null} - for JSON null, always {@code ==} to {@link #NULL}</li>
    * </ul>
    * 
-   * @param json the JSON string
+   * <p>
+   * The returned value is mutable.
+   * </p>
+   * 
+   * @param json the JSON string to parse
    * @return the parsed value
+   * 
    * @throws IllegalArgumentException if the input is not a valid JSON value
    * @throws NullPointerException if the input is null
    * 
-   * @see #emitValue(Object)
-   * @see Parser
+   * @see #parseDocument(String)
+   * @see #defaultParser()
+   * @see Parser#parseFragment(String)
    */
-  public static Object parseValue(String json) {
-    return new Parser().parseValue(json);
+  public static Object parseFragment(String json) {
+    return defaultParser().parseFragment(json);
   }
 
   /**
    * <p>
-   * Returns a valid JSON string representation of the given object. The object can be one of the
-   * following types:
+   * Creates a {@link #defaultParser() default parser} and uses it to parse the given JSON document.
+   * The value can be any valid JSON value, namely: an object, an array, a string, a number, a
+   * boolean, or null.
+   * </p>
+   * 
+   * <p>
+   * This method expects a JSON document, which is to say a single JSON value optionally preceded
+   * and followed by whitespace. Any leading or trailing characters other than whitespace will cause
+   * an exception to be thrown. Users may use {@link #parseFragment(String)} to parse multiple
+   * values from a single string.
+   * </p>
+   * 
+   * <p>
+   * The method will return one of the following types:
+   * </p>
+   * 
+   * <ul>
+   * <li>{@link Map} - for JSON objects. Keys must be {@link String strings}, values must be one of
+   * these values.</li>
+   * <li>{@link List} - for JSON arrays. Values must be one of these values.</li>
+   * <li>{@link String} - for JSON strings</li>
+   * <li>{@link Number} - for JSON numbers</li>
+   * <li>{@link Boolean} - for JSON booleans</li>
+   * <li>{@link Null} - for JSON null, always {@code ==} to {@link #NULL}</li>
+   * </ul>
+   * 
+   * <p>
+   * The returned value is mutable.
+   * </p>
+   * 
+   * @param json the JSON string to parse
+   * @return the parsed value
+   * 
+   * @throws IllegalArgumentException if the input is not a valid JSON value, or if the input
+   *         contains non-whitespace leading or trailing characters
+   * @throws NullPointerException if the input is null
+   * 
+   * @see #parseFragment(String)
+   * @see #defaultParser()
+   * @see Parser#parseDocument(String)
+   */
+  public static Object parseDocument(String json) {
+    return defaultParser().parseDocument(json);
+  }
+
+  /**
+   * <p>
+   * Creates a new {@link #defaultImmutableParser() default immutable parser} and uses it to parse
+   * the first value from the given string.The string must start with a JSON value, optionally
+   * preceded by whitespace. The value can be any valid JSON value, namely: an object, an array, a
+   * string, a number, a boolean, or null.
+   * </p>
+   * 
+   * <p>
+   * Parsing stops as soon as the first value is parsed. Any trailing characters after the first
+   * value will be ignored. The user may call {@link #getIndex()} to determine the position of the
+   * first unparsed character to find the remaining input.
+   * </p>
+   * 
+   * <p>
+   * The method will return one of the following types:
+   * </p>
+   * 
+   * <ul>
+   * <li>{@link Map} - for JSON objects. Keys must be {@link String strings}, values must be one of
+   * these values.</li>
+   * <li>{@link List} - for JSON arrays. Values must be one of these values.</li>
+   * <li>{@link String} - for JSON strings</li>
+   * <li>{@link Number} - for JSON numbers</li>
+   * <li>{@link Boolean} - for JSON booleans</li>
+   * <li>{@link Null} - for JSON null, always {@code ==} to {@link #NULL}</li>
+   * </ul>
+   * 
+   * <p>
+   * The returned value is mutable.
+   * </p>
+   * 
+   * @param json the JSON string to parse
+   * @return the parsed value
+   * 
+   * @throws IllegalArgumentException if the input is not a valid JSON value
+   * @throws NullPointerException if the input is null
+   * 
+   * @see #parseImmutableDocument(String)
+   * @see #defaultImmutableParser()
+   * @see Parser#parseFragment(String)
+   */
+  public static Object parseImmutableFragment(String json) {
+    return defaultImmutableParser().parseFragment(json);
+  }
+
+  /**
+   * <p>
+   * Creates a {@link #defaultImmutableParser() default immutable parser} and uses it to parse the
+   * given JSON document. The value can be any valid JSON value, namely: an object, an array, a
+   * string, a number, a boolean, or null.
+   * </p>
+   * 
+   * <p>
+   * This method expects a JSON document, which is to say a single JSON value optionally preceded
+   * and followed by whitespace. Any leading or trailing characters other than whitespace will cause
+   * an exception to be thrown. Users may use {@link #parseFragment(String)} to parse multiple
+   * values from a single string.
+   * </p>
+   * 
+   * <p>
+   * The method will return one of the following types:
+   * </p>
+   * 
+   * <ul>
+   * <li>{@link Map} - for JSON objects. Keys must be {@link String strings}, values must be one of
+   * these values.</li>
+   * <li>{@link List} - for JSON arrays. Values must be one of these values.</li>
+   * <li>{@link String} - for JSON strings</li>
+   * <li>{@link Number} - for JSON numbers</li>
+   * <li>{@link Boolean} - for JSON booleans</li>
+   * <li>{@link Null} - for JSON null, always {@code ==} to {@link #NULL}</li>
+   * </ul>
+   * 
+   * <p>
+   * The returned value is immutable.
+   * </p>
+   * 
+   * @param json the JSON string to parse
+   * @return the parsed value
+   * 
+   * @throws IllegalArgumentException if the input is not a valid JSON value, or if the input
+   *         contains non-whitespace leading or trailing characters
+   * @throws NullPointerException if the input is null
+   * 
+   * @see #parseImmutableFragment(String)
+   * @see #defaultImmutableParser()
+   * @see Parser#parseDocument(String)
+   */
+  public static Object parseImmutableDocument(String json) {
+    return defaultImmutableParser().parseDocument(json);
+  }
+
+  /**
+   * <p>
+   * Returns a valid JSON string representation of the given object. The result is guaranteed to be
+   * a valid JSON document.
+   * </p>
+   * 
+   * <p>
+   * The given value can be one of the following types:
    * </p>
    * 
    * <ul>
@@ -109,11 +266,71 @@ public class JustJson {
    * @return the JSON string representation of the object
    * @throws IllegalArgumentException if the object is not a valid JSON value
    * 
-   * @see #parseValue(String)
+   * @see #parseFragment(String)
    * @see Emitter
    */
-  public static String emitValue(Object o) {
-    return new Emitter().emitValue(o);
+  public static String emitDocument(Object o) {
+    return new Emitter().emitDocument(o);
+  }
+
+
+  /**
+   * <p>
+   * Returns a new default {@link Parser parser}, which has a maximum depth of 1000 and default
+   * factories:
+   * </p>
+   * 
+   * <ul>
+   * <li>{@link LinkedHashMap} for maps</li>
+   * <li>{@link ArrayList} for lists</li>
+   * <li>{@link StringBuilder#toString()} for strings</li>
+   * <li>{@link BigDecimal} for numbers</li>
+   * <li>{@link Boolean#parseBoolean(String)} for booleans</li>
+   * </ul>
+   * 
+   * <p>
+   * The returned data structure is mutable.
+   * </p>
+   * 
+   * <p>
+   * The returned parser is not thread-safe.
+   * </p>
+   * 
+   * @see #defaultImmutableParser()
+   */
+  public static Parser defaultParser() {
+    return new Parser(1000, LinkedHashMap::new, Function.identity(), ArrayList::new,
+        Function.identity(), StringBuilder::toString, BigDecimal::new, Boolean::parseBoolean);
+  }
+
+  /**
+   * <p>
+   * Returns a new default {@link Parser parser}, which has a maximum depth of 1000 and default
+   * factories:
+   * </p>
+   * 
+   * <ul>
+   * <li>{@link LinkedHashMap} for maps</li>
+   * <li>{@link ArrayList} for lists</li>
+   * <li>{@link StringBuilder#toString()} for strings</li>
+   * <li>{@link BigDecimal} for numbers</li>
+   * <li>{@link Boolean#parseBoolean(String)} for booleans</li>
+   * </ul>
+   * 
+   * <p>
+   * The returned data structure is immutable.
+   * </p>
+   * 
+   * <p>
+   * The returned parser is not thread-safe.
+   * </p>
+   * 
+   * @see #defaultParser()
+   */
+  public static Parser defaultImmutableParser() {
+    return new Parser(1000, LinkedHashMap::new, Collections::unmodifiableMap, ArrayList::new,
+        Collections::unmodifiableList, StringBuilder::toString, BigDecimal::new,
+        Boolean::parseBoolean);
   }
 
   /**
@@ -132,9 +349,21 @@ public class JustJson {
     private final Supplier<Map<String, Object>> mapFactory;
 
     /**
+     * A function for finishing a {@link Map} instance. This is used to apply any final processing
+     * to the map before returning it, e.g., to make it unmodifiable.
+     */
+    private final Function<Map<String, Object>, Map<String, Object>> mapFinisher;
+
+    /**
      * A factory for creating new {@link List} instances.
      */
     private final Supplier<List<Object>> listFactory;
+
+    /**
+     * A function for finishing a {@link List} instance. This is used to apply any final processing
+     * to the list before returning it, e.g., to make it unmodifiable.
+     */
+    private final Function<List<Object>, List<Object>> listFinisher;
 
     /**
      * A factory for creating new {@link String} instances.
@@ -152,8 +381,8 @@ public class JustJson {
     private final Function<String, Boolean> booleanFactory;
 
     /**
-     * The input JSON string. This is set by {@link #parseValue(String)}. As a result, this instance
-     * is not thread-safe.
+     * The input JSON string. This is set by {@link #parseFragment(String)}. As a result, this
+     * instance is not thread-safe.
      */
     private String json;
 
@@ -169,23 +398,6 @@ public class JustJson {
      */
     private int depth;
 
-    /**
-     * <p>
-     * Creates a new parser with a maximum depth of 1000 and default factories:
-     * </p>
-     * 
-     * <ul>
-     * <li>{@link LinkedHashMap} for maps</li>
-     * <li>{@link ArrayList} for lists</li>
-     * <li>{@link StringBuilder#toString()} for strings</li>
-     * <li>{@link BigDecimal} for numbers</li>
-     * <li>{@link Boolean#parseBoolean(String)} for booleans</li>
-     * </ul>
-     */
-    public Parser() {
-      this(1000, LinkedHashMap::new, ArrayList::new, StringBuilder::toString, BigDecimal::new,
-          Boolean::parseBoolean);
-    }
 
     /**
      * Creates a new parser with the given maximum depth and factories. Note that the {@code null}
@@ -199,13 +411,17 @@ public class JustJson {
      * @param booleanFactory a factory for creating new {@link Boolean} instances
      */
     public Parser(int maxDepth, Supplier<Map<String, Object>> mapFactory,
-        Supplier<List<Object>> listFactory, Function<StringBuilder, String> stringFactory,
-        Function<String, Number> numberFactory, Function<String, Boolean> booleanFactory) {
+        Function<Map<String, Object>, Map<String, Object>> mapFinisher,
+        Supplier<List<Object>> listFactory, Function<List<Object>, List<Object>> listFinisher,
+        Function<StringBuilder, String> stringFactory, Function<String, Number> numberFactory,
+        Function<String, Boolean> booleanFactory) {
       if (maxDepth < 1)
         throw new IllegalArgumentException("maxDepth must be at least 1");
       this.maxDepth = maxDepth;
       this.mapFactory = requireNonNull(mapFactory);
+      this.mapFinisher = requireNonNull(mapFinisher);
       this.listFactory = requireNonNull(listFactory);
+      this.listFinisher = requireNonNull(listFinisher);
       this.stringFactory = requireNonNull(stringFactory);
       this.numberFactory = requireNonNull(numberFactory);
       this.booleanFactory = requireNonNull(booleanFactory);
@@ -213,10 +429,63 @@ public class JustJson {
 
     /**
      * <p>
+     * Parses a JSON value from the given string. The value can be any valid JSON value, namely: an
+     * object, an array, a string, a number, a boolean, or null.
+     * </p>
+     * 
+     * <p>
+     * This method expects a JSON document, which is to say a single JSON value optionally preceded
+     * and followed by whitespace. Any leading or trailing characters other than whitespace will
+     * cause an exception to be thrown. Users may use {@link #parseFragment(String)} to parse
+     * multiple values from a single string.
+     * </p>
+     * 
+     * <p>
+     * The method will return one of the following types:
+     * </p>
+     * 
+     * <ul>
+     * <li>{@link Map} - for JSON objects. Keys must be {@link String strings}, values must be one
+     * of these values.</li>
+     * <li>{@link List} - for JSON arrays. Values must be one of these values.</li>
+     * <li>{@link String} - for JSON strings</li>
+     * <li>{@link Number} - for JSON numbers</li>
+     * <li>{@link Boolean} - for JSON booleans</li>
+     * <li>{@link Null} - for JSON null, always {@code ==} to {@link #NULL}</li>
+     * </ul>
+     * 
+     * @param json the JSON string to parse
+     * @return the parsed value
+     * 
+     * @throws IllegalArgumentException if the input is not a valid JSON value, or if the input
+     *         contains non-whitespace leading or trailing characters
+     * @throws NullPointerException if the input is null
+     * 
+     * @see #parseFragment(String)
+     */
+    public Object parseDocument(String json) {
+      Object fragment = parseFragment(json);
+
+      skipWhitespace();
+
+      if (index < json.length()) {
+        throw new IllegalArgumentException("Unexpected trailing characters after first value");
+      }
+
+      return fragment;
+    }
+
+    /**
+     * <p>
      * Parses the first JSON value from the given string. The string must start with a JSON value,
-     * optionally preceded by whitespace. The value can be an valid JSON value, namely: an object,
-     * an array, a string, a number, a boolean, or null. Any trailing characters after the first
-     * value will be ignored.
+     * optionally preceded by whitespace. The value can be any valid JSON value, namely: an object,
+     * an array, a string, a number, a boolean, or null.
+     * </p>
+     * 
+     * <p>
+     * Parsing stops as soon as the first value is parsed. Any trailing characters after the first
+     * value will be ignored. The user may call {@link #getIndex()} to determine the position of the
+     * first unparsed character to find the remaining input.
      * </p>
      * 
      * <p>
@@ -239,9 +508,9 @@ public class JustJson {
      * @throws IllegalArgumentException if the input is not a valid JSON value
      * @throws NullPointerException if the input is null
      * 
-     * @see JsonJson#parseValue(String)
+     * @see #parseDocument(String)
      */
-    public Object parseValue(String json) {
+    public Object parseFragment(String json) {
       if (json == null)
         throw new NullPointerException();
 
@@ -310,6 +579,14 @@ public class JustJson {
         if (json.charAt(index) == ',') {
           index++; // skip ','
           skipWhitespace();
+          if (index >= json.length()) {
+            throw new IllegalArgumentException("Unexpected end of input in object");
+          }
+          if (json.charAt(index) == '}') {
+            throw new IllegalArgumentException("Unexpected trailing ',' at the end of object");
+          }
+        } else if (json.charAt(index) != '}') {
+          throw new IllegalArgumentException("Expected ',' or '}' in object");
         }
       }
       if (index >= json.length()) {
@@ -319,7 +596,7 @@ public class JustJson {
         throw new IllegalArgumentException("Expected '}' at the end of object");
       }
       index++; // skip '}'
-      return map;
+      return mapFinisher.apply(map);
     }
 
     private List<Object> parseArray() {
@@ -340,6 +617,14 @@ public class JustJson {
         if (json.charAt(index) == ',') {
           index++; // skip ','
           skipWhitespace();
+          if (index >= json.length()) {
+            throw new IllegalArgumentException("Unexpected end of input in array");
+          }
+          if (json.charAt(index) == ']') {
+            throw new IllegalArgumentException("Unexpected trailing ',' at the end of array");
+          }
+        } else if (json.charAt(index) != ']') {
+          throw new IllegalArgumentException("Expected ',' or ']' in array");
         }
       }
       if (index >= json.length()) {
@@ -349,7 +634,7 @@ public class JustJson {
         throw new IllegalArgumentException("Expected ']' at the end of array");
       }
       index++; // skip ']'
-      return list;
+      return listFinisher.apply(list);
     }
 
     private String parseString() {
@@ -427,8 +712,18 @@ public class JustJson {
     }
 
     private void skipWhitespace() {
-      while (index < json.length() && Character.isWhitespace(json.charAt(index))) {
-        index++;
+      while (index < json.length()) {
+        char ch = json.charAt(index);
+        if (Character.isWhitespace(ch)) {
+          if (ch != ' ' && ch != '\t' && ch != '\n' && ch != '\r') {
+            // Per RFC 8259, only space, tab, line feed, and carriage return whitespace are allowed.
+            throw new IllegalArgumentException(
+                String.format("invalid whitespace character in whitespace (\\u%04x)", ch));
+          }
+          index++;
+        } else {
+          break;
+        }
       }
     }
 
@@ -440,6 +735,13 @@ public class JustJson {
     public int getIndex() {
       return index;
     }
+  }
+
+  /**
+   * Returns a new default {@link Emitter emitter}.
+   */
+  public static Emitter defaultEmitter() {
+    return new Emitter();
   }
 
   /**
@@ -469,7 +771,7 @@ public class JustJson {
      * @throws NullPointerException if the given object, or an element it contains, is {@code null}.
      *         Logical null values should be represented by {@link #NULL}.
      */
-    public String emitValue(Object o) {
+    public String emitDocument(Object o) {
       if (o == null) {
         throw new NullPointerException();
       } else if (o == NULL) {
@@ -489,9 +791,9 @@ public class JustJson {
             sb.append(",");
           }
           first = false;
-          sb.append(emitValue(entry.getKey().toString()));
+          sb.append(emitDocument(entry.getKey().toString()));
           sb.append(":");
-          sb.append(emitValue(entry.getValue()));
+          sb.append(emitDocument(entry.getValue()));
         }
         sb.append("}");
         return sb.toString();
@@ -504,7 +806,7 @@ public class JustJson {
             sb.append(",");
           }
           first = false;
-          sb.append(emitValue(item));
+          sb.append(emitDocument(item));
         }
         sb.append("]");
         return sb.toString();
