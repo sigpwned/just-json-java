@@ -57,9 +57,9 @@ To emit a JSON string from data of the above model:
     try {
         json = JustJson.emitDocument(value);
     } catch(IllegalArgumentException e) {
-        // The JSON value was not valid. This means some value was not a Map, List, Number, String, Boolean,
-        // or JustJson.NULL. This example will not throw an exception, but this is how you would handle an
-        // exception if one were thrown.
+        // The JSON value was not valid. This means some value was not a Map, List, Number,
+        // String, Boolean, or JustJson.NULL. This example will not throw an exception, but 
+        // his is how you would handle an exception if one were thrown.
     }
 
 ## Advanced Usage
