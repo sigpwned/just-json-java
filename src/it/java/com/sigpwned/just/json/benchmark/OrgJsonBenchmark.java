@@ -23,7 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Test;
 
-public class OrgJsonBenchmarkTest extends JsonBenchmarkBase {
+public class OrgJsonBenchmark extends JsonBenchmarkBase {
   /**
    * Adapted from
    * https://github.com/nst/JSONTestSuite/blob/ce29be082120577cc73c137ddca62eab894cef93/parsers/test_java_org_json_2016_08/TestJSONParsing.java

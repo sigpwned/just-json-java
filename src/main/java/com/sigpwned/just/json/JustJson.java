@@ -23,12 +23,38 @@ import static java.util.Objects.requireNonNull;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Spliterator;
+import java.util.Spliterators;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
+/**
+ * <p>
+ * Just JSON is a simple JSON parser/emitter implementation. It uses the following types to model
+ * JSON data:
+ * </p>
+ *
+ * <ul>
+ * <li>{@link Map} for object values. Keys must be {@link String strings}, values must be one of
+ * these values.</li>
+ * <li>{@link List} for array values. Values must be one of these values.</li>
+ * <li>{@link String} for string values</li>
+ * <li>{@link Number} for number values</li>
+ * <li>{@link Boolean} for boolean values</li>
+ * <li>{@link Null} for the null value, always {@code ==} to {@link #NULL}</li>
+ * </ul>
+ * 
+ * <p>
+ * Parsing a JSON string will return data of these types. The emitter expects data of these types.
+ * </p>
+ */
 public class JustJson {
   /**
    * Represents the JSON {@code null} value. JSON null values are represented as an instance of this
@@ -59,7 +85,7 @@ public class JustJson {
   /**
    * <p>
    * Creates a new {@link #defaultParser() default parser} and uses it to parse the first value from
-   * the given string.The string must start with a JSON value, optionally preceded by whitespace.
+   * the given string. The string must start with a JSON value, optionally preceded by whitespace.
    * The value can be any valid JSON value, namely: an object, an array, a string, a number, a
    * boolean, or null.
    * </p>
@@ -69,20 +95,6 @@ public class JustJson {
    * value will be ignored. The user may call {@link #getIndex()} to determine the position of the
    * first unparsed character to find the remaining input.
    * </p>
-   * 
-   * <p>
-   * The method will return one of the following types:
-   * </p>
-   * 
-   * <ul>
-   * <li>{@link Map} - for JSON objects. Keys must be {@link String strings}, values must be one of
-   * these values.</li>
-   * <li>{@link List} - for JSON arrays. Values must be one of these values.</li>
-   * <li>{@link String} - for JSON strings</li>
-   * <li>{@link Number} - for JSON numbers</li>
-   * <li>{@link Boolean} - for JSON booleans</li>
-   * <li>{@link Null} - for JSON null, always {@code ==} to {@link #NULL}</li>
-   * </ul>
    * 
    * <p>
    * The returned value is mutable.
@@ -100,6 +112,55 @@ public class JustJson {
    */
   public static Object parseFragment(String json) {
     return defaultParser().parseFragment(json);
+  }
+
+  /**
+   * <p>
+   * Creates a new {@link #defaultParser() default parser} and uses it to parse all of the values
+   * from the given string, returning the ordered sequence as an {@link Iterator}. The values can be
+   * any valid JSON value, namely: an object, an array, a string, a number, a boolean, or null.
+   * </p>
+   * 
+   * <p>
+   * The returned iterator does not support the {@link Iterator#remove()} operation.
+   * </p>
+   * 
+   * <p>
+   * The individual returned values are mutable.
+   * </p>
+   * 
+   * <p>
+   * This method can be used to parse data in [JSON Lines format](https://jsonlines.org/).
+   * </p>
+   * 
+   * @param json The string to parse
+   * @return The iterator of parsed JSON values
+   * 
+   * @see #parseFragments(Parser, String)
+   */
+  public static Iterator<Object> parseFragments(String json) {
+    return parseFragments(defaultParser(), json);
+  }
+
+  /**
+   * <p>
+   * Returns a stream of JSON fragments from the given string. The string must contain all
+   * whitespace, or one or more JSON values optionally surrounded by whitespace. The values can be
+   * any valid JSON value, namely: an object, an array, a string, a number, a boolean, or null.
+   * </p>
+   * 
+   * <p>
+   * This method can be used to parse data in [JSON Lines format](https://jsonlines.org/).
+   * </p>
+   * 
+   * @param parser the parser to use
+   * @param json the string to parse
+   * @return a stream of JSON fragments
+   */
+  public static Stream<Object> streamFragments(Parser parser, String json) {
+    return StreamSupport.stream(
+        Spliterators.spliteratorUnknownSize(parseFragments(parser, json), Spliterator.ORDERED),
+        false);
   }
 
   /**
@@ -242,6 +303,86 @@ public class JustJson {
     return defaultImmutableParser().parseDocument(json);
   }
 
+
+  /**
+   * <p>
+   * Returns a stream of JSON fragments parsed from the given string using {@link #defaultParser()
+   * the default parser}. The elements of the stream will be mutable.
+   * </p>
+   * 
+   * <p>
+   * The string must contain all whitespace, or one or more JSON values optionally surrounded by
+   * whitespace. The values can be any valid JSON value, namely: an object, an array, a string, a
+   * number, a boolean, or null.
+   * </p>
+   * 
+   * <p>
+   * This method can be used to parse data in [JSON Lines format](https://jsonlines.org/).
+   * </p>
+   * 
+   * @param json
+   * @return
+   */
+  public static Stream<Object> streamFragments(String json) {
+    return streamFragments(defaultParser(), json);
+  }
+
+  /**
+   * <p>
+   * Returns an iterator of JSON fragments from the given string. The string must contain all
+   * whitespace, or one or more JSON values optionally surrounded by whitespace. The values can be
+   * any valid JSON value, namely: an object, an array, a string, a number, a boolean, or null.
+   * </p>
+   * 
+   * <p>
+   * This method can be used to parse data in [JSON Lines format](https://jsonlines.org/).
+   * </p>
+   * 
+   * @param parser the parser to use
+   * @param json the string to parse
+   * @return an iterator of JSON fragments
+   */
+  public static Iterator<Object> parseFragments(Parser parser, String json) {
+    if (json == null)
+      throw new NullPointerException();
+
+    final String firstText = json.trim();
+    if (firstText.isEmpty())
+      return Collections.emptyIterator();
+
+    final Object firstValue = JustJson.parseFragment(firstText);
+    final int firstValueEnd = parser.getIndex();
+
+    return new Iterator<Object>() {
+      private String remainingText = firstText.substring(firstValueEnd, firstText.length()).trim();
+      private Object value = firstValue;
+
+      @Override
+      public boolean hasNext() {
+        return value != null;
+      }
+
+      @Override
+      public Object next() {
+        if (!hasNext())
+          throw new NoSuchElementException();
+
+        final Object result = value;
+
+        if (remainingText.isEmpty()) {
+          remainingText = null;
+          value = null;
+          return result;
+        }
+
+        value = parser.parseFragment(remainingText);
+        remainingText = remainingText.substring(parser.getIndex(), remainingText.length()).trim();
+
+        return result;
+      }
+    };
+  }
+
   /**
    * <p>
    * Returns a valid JSON string representation of the given object. The result is guaranteed to be
@@ -281,7 +422,7 @@ public class JustJson {
    * </p>
    * 
    * <ul>
-   * <li>{@link LinkedHashMap} for maps</li>
+   * <li>{@link HashMap} for maps</li>
    * <li>{@link ArrayList} for lists</li>
    * <li>{@link StringBuilder#toString()} for strings</li>
    * <li>{@link BigDecimal} for numbers</li>
@@ -299,8 +440,9 @@ public class JustJson {
    * @see #defaultImmutableParser()
    */
   public static Parser defaultParser() {
-    return new Parser(1000, LinkedHashMap::new, Function.identity(), ArrayList::new,
-        Function.identity(), StringBuilder::toString, BigDecimal::new, Boolean::parseBoolean);
+    return new Parser(1000, StringBuilder::toString, HashMap::new, Function.identity(),
+        ArrayList::new, Function.identity(), StringBuilder::toString, BigDecimal::new,
+        Boolean::parseBoolean);
   }
 
   /**
@@ -310,7 +452,7 @@ public class JustJson {
    * </p>
    * 
    * <ul>
-   * <li>{@link LinkedHashMap} for maps</li>
+   * <li>{@link HashMap} for maps</li>
    * <li>{@link ArrayList} for lists</li>
    * <li>{@link StringBuilder#toString()} for strings</li>
    * <li>{@link BigDecimal} for numbers</li>
@@ -328,8 +470,8 @@ public class JustJson {
    * @see #defaultParser()
    */
   public static Parser defaultImmutableParser() {
-    return new Parser(1000, LinkedHashMap::new, Collections::unmodifiableMap, ArrayList::new,
-        Collections::unmodifiableList, StringBuilder::toString, BigDecimal::new,
+    return new Parser(1000, StringBuilder::toString, HashMap::new, Collections::unmodifiableMap,
+        ArrayList::new, Collections::unmodifiableList, StringBuilder::toString, BigDecimal::new,
         Boolean::parseBoolean);
   }
 
@@ -342,6 +484,11 @@ public class JustJson {
      * input exceeds this depth.
      */
     private final int maxDepth;
+
+    /**
+     * A factory for creating new {@link String} instances for use as object keys.
+     */
+    private final Function<StringBuilder, String> keyFactory;
 
     /**
      * A factory for creating new {@link Map} instances.
@@ -366,7 +513,7 @@ public class JustJson {
     private final Function<List<Object>, List<Object>> listFinisher;
 
     /**
-     * A factory for creating new {@link String} instances.
+     * A factory for creating new {@link String} instances for use as values.
      */
     private final Function<StringBuilder, String> stringFactory;
 
@@ -410,7 +557,8 @@ public class JustJson {
      * @param numberFactory a factory for creating new {@link Number} instances
      * @param booleanFactory a factory for creating new {@link Boolean} instances
      */
-    public Parser(int maxDepth, Supplier<Map<String, Object>> mapFactory,
+    public Parser(int maxDepth, Function<StringBuilder, String> keyFactory,
+        Supplier<Map<String, Object>> mapFactory,
         Function<Map<String, Object>, Map<String, Object>> mapFinisher,
         Supplier<List<Object>> listFactory, Function<List<Object>, List<Object>> listFinisher,
         Function<StringBuilder, String> stringFactory, Function<String, Number> numberFactory,
@@ -418,6 +566,7 @@ public class JustJson {
       if (maxDepth < 1)
         throw new IllegalArgumentException("maxDepth must be at least 1");
       this.maxDepth = maxDepth;
+      this.keyFactory = requireNonNull(keyFactory);
       this.mapFactory = requireNonNull(mapFactory);
       this.mapFinisher = requireNonNull(mapFinisher);
       this.listFactory = requireNonNull(listFactory);
@@ -532,7 +681,7 @@ public class JustJson {
       } else if (ch == '[') {
         return parseArray();
       } else if (ch == '"') {
-        return parseString();
+        return parseString(stringFactory);
       } else if (Character.isDigit(ch) || ch == '-') {
         return parseNumber();
       } else if (json.startsWith("true", index)) {
@@ -560,7 +709,7 @@ public class JustJson {
       skipWhitespace();
       while (index < json.length() && json.charAt(index) != '}') {
         skipWhitespace();
-        String key = parseString();
+        String key = parseString(keyFactory);
         skipWhitespace();
         if (index >= json.length()) {
           throw new IllegalArgumentException("Unexpected end of input in object");
@@ -637,7 +786,7 @@ public class JustJson {
       return listFinisher.apply(list);
     }
 
-    private String parseString() {
+    private String parseString(Function<StringBuilder, String> factory) {
       index++; // skip opening '"'
       StringBuilder sb = new StringBuilder();
       while (index < json.length() && json.charAt(index) != '"') {
@@ -698,7 +847,7 @@ public class JustJson {
         throw new IllegalArgumentException("Unterminated string");
       }
       index++; // skip closing '"'
-      return stringFactory.apply(sb);
+      return factory.apply(sb);
     }
 
     private Number parseNumber() {

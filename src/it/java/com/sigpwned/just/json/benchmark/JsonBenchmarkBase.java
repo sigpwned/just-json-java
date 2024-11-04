@@ -61,7 +61,7 @@ public abstract class JsonBenchmarkBase {
     Options opt = new OptionsBuilder().include(getClass().getSimpleName())
         // Set the following options as needed
         .mode(Mode.Throughput).timeUnit(TimeUnit.SECONDS).warmupTime(TimeValue.seconds(1))
-        .warmupIterations(3).measurementTime(TimeValue.seconds(1)).measurementIterations(5).forks(3)
+        .warmupIterations(3).measurementTime(TimeValue.seconds(1)).measurementIterations(3).forks(3)
         .shouldFailOnError(true)
         // .jvmArgs("-XX:+UnlockDiagnosticVMOptions", "-XX:+PrintInlining")
         // .addProfiler(WinPerfAsmProfiler.class)

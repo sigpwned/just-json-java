@@ -20,12 +20,21 @@
 package com.sigpwned.just.json.benchmark;
 
 import org.junit.Test;
-import com.sigpwned.just.json.JustJson;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JustJsonBenchmarkTest extends JsonBenchmarkBase {
-  public Object parseJsonDocument(String document) {
+public class JacksonBenchmark extends JsonBenchmarkBase {
+  /**
+   * Adapted from
+   * https://github.com/nst/JSONTestSuite/blob/019e073da547948740b0436bdec8cbe2a829adf1/parsers/test_java_jackson_2_8_4/TestJSONParsing.java
+   */
+  public Object parseJsonDocument(String s) {
     try {
-      return JustJson.parseDocument(document);
+      JsonFactory factory = new JsonFactory();
+      ObjectMapper mapper = new ObjectMapper(factory);
+      JsonNode rootNode = mapper.readTree(s);
+      return rootNode;
     } catch (Exception e) {
       e.printStackTrace();
       return null;
