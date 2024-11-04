@@ -1,4 +1,4 @@
-# Just JSON for Java [![tests](https://github.com/sigpwned/just-json-java/actions/workflows/tests.yml/badge.svg)](https://github.com/sigpwned/just-json-java/actions/workflows/tests.yml)
+# Just JSON for Java [![tests](https://github.com/sigpwned/just-json-java/actions/workflows/tests.yml/badge.svg)](https://github.com/sigpwned/just-json-java/actions/workflows/tests.yml) [![Maven Central Version](https://img.shields.io/maven-central/v/com.sigpwned/just-json)](https://central.sonatype.com/artifact/com.sigpwned/just-json) [![javadoc](https://javadoc.io/badge2/com.sigpwned/just-java/javadoc.svg)](https://javadoc.io/doc/com.sigpwned/just-java)
 
 Just JSON is a small, simple library for Java that provides JSON parsing and emitting support and nothing else.
 
@@ -23,7 +23,11 @@ Just JSON should not...
 
 Just JSON is in Maven Central, so you can simply add a dependency.
 
-    // TODO Add Dependency GAV once released
+    <dependency>
+        <groupId>com.sigpwned</groupId>
+        <artifactId>just-json</artifactId>
+        <version>0.0.0</version>
+    </dependency>
 
 Just JSON is a single Java file, so you can also just copy/paste it into your project, in a pinch.
 
