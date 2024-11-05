@@ -8,7 +8,7 @@ Just JSON should...
 
 * **Parse JSON**. The library parses correct JSON and returns a useful model of the data.
 * **Generate JSON**. The library emits correct, compact JSON for model data.
-* **Be very small**. The JAR file is currently 11KB compressed, 28KB uncompressed.
+* **Be very small**. The JAR file is currently 13KB compressed, 32KB uncompressed.
 * **Be very simple**. Users only need 2 methods: one to parse JSON, and one to emit JSON.
 * **Be fast enough**. It should be fast enough to let users do what they need to do without getting in the way.
 
