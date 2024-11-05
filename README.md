@@ -7,7 +7,7 @@ Just JSON is a small, simple library for Java that provides JSON parsing and emi
 Just JSON should...
 
 * **Parse JSON**. The library parses correct JSON and returns a useful model of the data.
-* **Generate JSON**. The library emits correct, compact JSON for model data.
+* **Emit JSON**. The library emits correct, compact JSON for model data.
 * **Be very small**. The JAR file is currently 13KB compressed, 32KB uncompressed.
 * **Be very simple**. Users only need 2 methods: one to parse JSON, and one to emit JSON.
 * **Be fast enough**. It should be fast enough to let users do what they need to do without getting in the way.
