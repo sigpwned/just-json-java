@@ -1,4 +1,4 @@
-# Just JSON for Java [![tests](https://github.com/sigpwned/just-json-java/actions/workflows/tests.yml/badge.svg)](https://github.com/sigpwned/just-json-java/actions/workflows/tests.yml) [![Maven Central Version](https://img.shields.io/maven-central/v/com.sigpwned/just-json)](https://central.sonatype.com/artifact/com.sigpwned/just-json) [![javadoc](https://javadoc.io/badge2/com.sigpwned/just-java/javadoc.svg)](https://javadoc.io/doc/com.sigpwned/just-java)
+# Just JSON for Java [![tests](https://github.com/sigpwned/just-json-java/actions/workflows/tests.yml/badge.svg)](https://github.com/sigpwned/just-json-java/actions/workflows/tests.yml) [![Maven Central Version](https://img.shields.io/maven-central/v/com.sigpwned/just-json)](https://central.sonatype.com/artifact/com.sigpwned/just-json) [![javadoc](https://javadoc.io/badge2/com.sigpwned/just-json/javadoc.svg)](https://javadoc.io/doc/com.sigpwned/just-json)
 
 Just JSON is a small, simple library for Java that provides JSON parsing and emitting support and nothing else.
 
