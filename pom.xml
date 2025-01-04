@@ -3,7 +3,7 @@
 
     <groupId>com.sigpwned</groupId>
     <artifactId>just-json</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>just-json</name>
     <inceptionYear>2024</inceptionYear>
     <description>Minimal JSON Parser and Emitter for Java 8+</description>
@@ -20,7 +20,7 @@
         <developerConnection>
             scm:git:ssh://git@github.com/sigpwned/just-json-java.git</developerConnection>
         <url>https://github.com/sigpwned/just-json-java/tree/main</url>
-        <tag>v0.0.0</tag>
+        <tag>v0.0.1</tag>
     </scm>
 
     <licenses>
