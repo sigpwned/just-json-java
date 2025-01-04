@@ -162,6 +162,23 @@ The `Emitter` class is substantially simpler. It has no configuration options. U
 
     JustJson.Emitter emitter = JustJson.defaultEmitter();
     
+## Known Issues
+
+### Build Incompatibility with JDK 23 and Later
+
+Currently, this project can only be built on **JDK 22 or earlier** due to an issue described in [this discussion on the OpenJDK mailing list](https://mail.openjdk.org/pipermail/jdk-dev/2024-May/009028.html). Building on **JDK 23 or later** leads to the following errors:
+
+    [INFO] Results:
+    [INFO]
+    [ERROR] Errors:
+    [ERROR]   JacksonBenchmark.test:46->JsonBenchmarkBase.run:69 » Runtime ERROR: Unable to find the resource: /META-INF/BenchmarkList
+    [ERROR]   JustJsonBenchmark.test:37->JsonBenchmarkBase.run:69 » Runtime ERROR: Unable to find the resource: /META-INF/BenchmarkList
+    [ERROR]   OrgJsonBenchmark.test:52->JsonBenchmarkBase.run:69 » Runtime ERROR: Unable to find the resource: /META-INF/BenchmarkList
+    [INFO]
+    [ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0
+
+Although [a fix has been merged into JMH](https://github.com/openjdk/jmh/pull/125), it has not yet been released. The issue will be revisited once the next JMH release (1.38) is available.
+
 ## FAQ
 
 ### Why Yet Another JSON Library?
