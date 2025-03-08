@@ -26,7 +26,7 @@ Just JSON is in Maven Central, so you can simply add a dependency.
     <dependency>
         <groupId>com.sigpwned</groupId>
         <artifactId>just-json</artifactId>
-        <version>0.0.0</version>
+        <version>0.0.1</version>
     </dependency>
 
 Just JSON is a single Java file with no dependencies, so you can also just copy/paste it into your project, in a pinch.
