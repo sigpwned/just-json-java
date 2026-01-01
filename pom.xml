@@ -62,7 +62,7 @@
         <junit.version>4.13.2</junit.version>
         <jmh.version>1.37</jmh.version>
         <jackson.version>2.19.1</jackson.version>
-        <org.json.version>20250517</org.json.version>
+        <org.json.version>20251224</org.json.version>
     </properties>
 
     <build>
